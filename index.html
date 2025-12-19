@@ -2,22 +2,21 @@
 <html>
 <head>
     <title>JanekTech Website</title>
+
     <style>
-        /* Black border area around the panel, like the screenshot */
         html {
             background: #000000;
         }
 
-        /* Main centered panel */
         body {
-            background: #2D3635;    /* your color */
-            color: #68B0A2;         /* your color */
-            font-family: "Courier New", monospace;  /* retro/terminal feel */
+            background: #2D3635;
+            color: #dddddd;
+            font-family: "Courier New", monospace;
             max-width: 900px;
-            margin: 40px auto;      /* centers the whole panel */
+            margin: 40px auto;
             padding: 20px 40px;
             border: 3px solid #777;
-            box-shadow: 0 0 0 4px #555;  /* double-border look */
+            box-shadow: 0 0 0 4px #555;
         }
 
         h1 {
@@ -31,56 +30,73 @@
             margin: 20px 0 30px;
         }
 
-        button {
-            background-color: #68B0A2;
+        a.button {
+            display: inline-block;
+            background-color: #8e9493;
             border: 2px solid #2D3635;
             padding: 8px 18px;
-            border-radius: 0;
-            cursor: pointer;
             margin: 5px;
-        }
-
-        button a {
             color: #2D3635;
             text-decoration: none;
             font-weight: bold;
         }
 
-        button:hover {
-            background-color: #7CCFC0;
+        a.button:hover {
+            background-color: #929e9c;
         }
 
         .logo {
             display: block;
-            margin: 20px auto;  /* centers the image */
-            width: 250px;       /* logo size */
+            margin: 20px auto;
+            width: 250px;
         }
+
+        /* CODE BOX */
+        .code-box {
+            background: #0b1220;
+            border: 2px solid #1e293b;
+            padding: 16px;
+            width: fit-content;
+            font-family: monospace;
+            font-size: 14px;
+            color: #e5e7eb;
+            margin: 20px auto;
+        }
+
+        .blue { color: #38bdf8; }
+        .yellow { color: #fbbf24; }
+        .green { color: #4ade80; }
     </style>
 </head>
 
 <body>
+
     <h1>Welcome to the JanekTech Github Site!</h1>
+
     <img src="logo.png" class="logo" alt="JanekTech logo">
+
     <div class="nav">
-        <button>
-            <a href="https://janektech.wixsite.com/janeksdownload">
-                Here is the second Wix site
-            </a>
+        <a class="button" href="https://janektech.wixsite.com/janeksdownload">
+            Second Wix Site
+        </a>
+        <a class="button" href="./Apps">Apps</a>
+        <a class="button" href="./addons">Addons</a>
+    </div>
 
-        </button>
+    <div class="code-box">
+<pre>
+<span class="blue">import</span> easydata as main # New Python addon dropped!</span>
+<span class="blue">data</span> = targets, _ = main.readAll("file")</span>
 
-        <button>
-            <a href="./Apps">
-                Apps
-            </a>
-        </button>
+<span class="green">print</span>(data[<span class="yellow">"apple"</span>])
+<span class="green">print</span>(data[<span class="yellow">"mango"</span>])
+</pre>
+    </div>
+
     <h1>Currently Working On:</h1>
     <ul>
-       <li>JanekTech editor</li> 
+        <li>JanekTech editor</li>
     </ul>
 
-    
 </body>
 </html>
-
-
