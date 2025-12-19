@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JanekTech Website / addons</title>
+
+    <style>
+        html {
+            background: #000000;
+        }
+
+        body {
+            background: #2D3635;
+            color: #dddddd;
+            font-family: "Courier New", monospace;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px 40px;
+            border: 3px solid #777;
+            box-shadow: 0 0 0 4px #555;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+
+        .nav {
+            text-align: center;
+            margin: 20px 0 30px;
+        }
+
+        a.button {
+            display: inline-block;
+            background-color: #8e9493;
+            border: 2px solid #2D3635;
+            padding: 8px 18px;
+            margin: 5px;
+            color: #2D3635;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a.button:hover {
+            background-color: #929e9c;
+        }
+
+        .logo {
+            display: block;
+            margin: 20px auto;
+            width: 250px;
+        }
+
+        /* CODE BOX */
+        .code-box {
+            background: #0b1220;
+            border: 2px solid #1e293b;
+            padding: 16px;
+            width: fit-content;
+            font-family: monospace;
+            font-size: 14px;
+            color: #e5e7eb;
+            margin: 20px auto;
+        }
+
+        .blue { color: #38bdf8; }
+        .yellow { color: #fbbf24; }
+        .green { color: #4ade80; }
+        .white { color: #dddddd; }
+
+        .code-text {
+            background: #0b1220;
+            border: 1px solid #1e293b;
+            padding: 10px 14px;
+            width: fit-content;
+            font-family: monospace;
+            font-size: 12px;        /* 8px is VERY small */
+            color: #ffffff;
+            text-decoration: none; /* remove underline */
+            display: inline-block; /* makes padding work */
+            
+        }
+        .blue { color: #38bdf8; }
+        .yellow { color: #fbbf24; }
+        .green { color: #4ade80; }
+        .red{ color: #de4f4a; }
+
+        .code-text:hover {
+            background: #111827;
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Addons:</h1>
+
+    <img src="logo.png" class="logo" alt="JanekTech logo">
+
+    <h2>Easydata:</h2>
+    <h4>how to import: </h4>
+    <a>download the file <div class="code-text"><span class="yellow">easydata.py</span></div> and place it next
+    to a file that you are implementing. After that just use<div class="code-text"><span class="red">import </span><span class="yellow">easydata </span></div> </a>
+    
+    <h4>Updates: </h4>
+    <a>This addon will be updated someday(if i want to). for now you need use this.</a>
+    <a>You can modify the addon and if you want to publish it just please add that the base was from janektech.pl </a>
+    
+    
+    <h4>Functions: </h4>
+    <a>encode. Encode function adds a bite to the file so other reading functions won't read it</a>
+    <div class="code-box">
+    
+<pre>
+<span class="green">file</span> = <span class="yellow">"file.jbk"</span></span>
+<span class="green">easydata</span><span class="yellow">.encode(file)</span></span>
+
+</pre>
+</div>
+
+    <a>decode. Decode function deletes the first bite from the file</a>
+    <div class="code-box">
+    
+<pre>
+<span class="green">file</span> = <span class="yellow">"file.jbk"</span></span>
+<span class="green">easydata</span><span class="yellow">.decode(file)</span></span>
+
+</pre>
+</div>
+
+
+
+    <a>Read. Read function reads the file provided and returns dataout with is a list</a>
+    <div class="code-box">
+    
+<pre>
+<span class="green">file</span> = <span class="yellow">"file.jbk"</span></span>
+<span class="green">out = easydata</span><span class="yellow">.read(file)</span></span>
+<span class="green">print</span><span class="yellow">(out)</span></span>
+<span class="white">Result:  </span><span class="white">['sigma', '@tuff boy', 'sigma2', '@tuff boy2']</span></span>
+
+
+
+
+</pre>
+</div>
+
+</div>
+
+    <a>target. Target function is used when you now the first value.[apple]: like; it will return like</a>
+    <div class="code-box">
+    
+<pre>
+<span class="green">file</span> = <span class="yellow">"file.jbk"</span></span>
+<span class="green">out = easydata</span><span class="yellow">.target("sigma",file)</span></span>
+<span class="green">print</span><span class="yellow">(out)</span></span>
+<span class="white">Result:  </span><span class="white">['tuff boy']</span></span>
+
+</pre>
+</div>
+
+
+
+    <a>readAll. readAll function is used when you don't know the target. it will return all of the targets and also data</a>
+    <div class="code-box">
+    
+<pre>
+<span class="green">file</span> = <span class="yellow">"file.jbk"</span></span>
+<span class="green">out = easydata</span><span class="yellow">.readAll(file)</span></span>
+<span class="green">print</span><span class="yellow">(out)</span></span>
+<span class="white">Result:  </span><span class="white">['sigma', 'sigma2'] ['tuff boy', 'tuff boy2']</span></span>
+
+</pre>
+</div>
+
+    <a>readAllTargets. readAllTargets function is used when you don't know the target and you want to read and save data one by one from them. it will return all of the targets and also data</a>
+    <div class="code-box">
+    
+<pre>
+<span class="green">file</span> = <span class="yellow">"file.jbk"</span></span>
+<span class="green">out = easydata</span><span class="yellow">.readAllTargets(file)</span></span>
+<span class="green">print</span><span class="yellow">(out)</span></span>
+<span class="white">Result:  </span><span class="white">['sigma', 'sigma2'] ['tuff boy', 'tuff boy2']
+{'sigma': ['tuff boy'], 'sigma2': ['tuff boy2']}</span></span>
+
+</pre>
+</div>
+
+    <a>Save. saves files :). Val1 is the target and Val2 is the data</a>
+    <div class="code-box">
+    
+<pre>
+<span class="green">file</span> = <span class="yellow">"file.jbk"</span></span>
+<span class="green">val1</span> = <span class="yellow">"apple"</span></span>
+<span class="green">val2</span> = <span class="yellow">"mango"</span></span>
+<span class="green">easydata</span><span class="yellow">.save(val1, val2, file)</span></span>
+<span class="white">Result:  </span><span class="white">saved file</span></span>
+
+</pre>
+</div>
+
+<a class="button" href="../">Back</a>
+<a class="button" href="https://958e8748-38c9-4f0e-9ed2-fea32f696937.filesusr.com/archives/937646_3905cc11a9c74cbab9c74773e35c90df.zip?dn=easydata.zip">download</a>
+</body>
+</html>
