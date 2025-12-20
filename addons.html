@@ -209,14 +209,23 @@
 <span class="green">jeasydata</span><span class="yellow">.delete(val1, file)</span></span>
 <span class="white">Result:  </span><span class="white">deleted apple and its value in the file</span></span>
 
+
 </pre>
 </div>
+<h4>Usage: </h4>
+<a>How to get a clean string ? So this addon outputs every thing in lists so you need to "delist" it</a>
+<pre>
+    <div class="code-box">
+<span class="red">import </span><span class="yellow">jeasydata </span><span class="red">as</span><span class="yellow"> j</span></span>
+<span class="green">file</span> = <span class="yellow">"test.jbk"</span></span>
+<span class="white">dataout = </span><span class="green">j.read(file)</span></span>
+<span class="white">out = </span><span class="green">j.target(</span><span class="yellow">dataout[0], file</span><span class="green">)</span></span>
+<span class="green">print(</span><span class="yellow">out[0]<span class="green">)</span></span></span>
+</div>
+</pre>
+<a>Remember that target will always be 0,3,5,7,9 and more. if you have any other idea how to delist it then share!</a>
+
 
 <a class="button" href="../">Back</a>
 </body>
 </html>
-
-
-
-
-
