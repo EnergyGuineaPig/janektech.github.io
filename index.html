@@ -1,114 +1,164 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JanekTech Website</title>
+  <title>JanekTech Website</title>
 
-    <style>
-        html {
-            background: #000000;
-        }
+  <style>
+    html {
+      background: #000;
+    }
 
-        body {
-            background: #2D3635;
-            color: #dddddd;
-            font-family: "Courier New", monospace;
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px 40px;
-            border: 3px solid #777;
-            box-shadow: 0 0 0 4px #555;
-        }
+    /* Page layout: sidebar + main */
+    body {
+      margin: 0;
+      color: #dddddd;
+      font-family: "Courier New", monospace;
+    }
 
-        h1 {
-            text-align: center;
-            margin-top: 0;
-            text-transform: uppercase;
-        }
+    .layout {
+      max-width: 1200px;      /* overall width including sidebar */
+      margin: 40px auto;
+      padding: 0 20px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
 
-        .nav {
-            text-align: center;
-            margin: 20px 0 30px;
-        }	
-        .banner {
-	width: 100%;
-    	background: #723B31;
-    	color: white;
-    	text-align: center;
-    	font-family: monospace;
-    	font-size: 22px;
-    	padding: 20px 0;
-    	border-bottom: 2px solid #444;
-     }
-      a.button {
-            display: inline-block;
-            background-color: #8e9493;
-            border: 2px solid #2D3635;
-            padding: 8px 18px;
-            margin: 5px;
-            color: #2D3635;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    /* Sidebar */
+    .sidebar {
+      width: 220px;           /* adjust to taste */
+      background: #151a19;
+      border: 3px solid #777;
+      box-shadow: 0 0 0 4px #555;
+      padding: 16px;
+      position: sticky;       /* stays visible while scrolling */
+      top: 20px;
+    }
 
-        a.button:hover {
-            background-color: #929e9c;
-        }
+    .sidebar h2 {
+      margin: 0 0 12px;
+      font-size: 16px;
+      text-transform: uppercase;
+      text-align: center;
+    }
 
-        .logo {
-            display: block;
-            margin: 30px auto;
-            width: 250px;
-        }
+    .side-link {
+      display: block;
+      background: #8e9493;
+      border: 2px solid #2D3635;
+      padding: 10px 12px;
+      margin: 8px 0;
+      color: #2D3635;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+    }
 
-        /* CODE BOX */
-        .code-box {
-            background: #0b1220;
-            border: 2px solid #1e293b;
-            padding: 16px;
-            width: fit-content;
-            font-family: monospace;
-            font-size: 14px;
-            color: #e5e7eb;
-            margin: 20px auto;
-        }
+    .side-link:hover {
+      background: #929e9c;
+    }
 
-        .blue { color: #38bdf8; }
-        .yellow { color: #fbbf24; }
-        .green { color: #4ade80; }
-    </style>
+    /* Main content box (your old body styles moved here) */
+    .main {
+      flex: 1;
+      background: #2D3635;
+      border: 3px solid #777;
+      box-shadow: 0 0 0 4px #555;
+      padding: 20px 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 0;
+      text-transform: uppercase;
+    }
+
+    .nav {
+      text-align: center;
+      margin: 20px 0 30px;
+    }
+
+    a.button {
+      display: inline-block;
+      background-color: #8e9493;
+      border: 2px solid #2D3635;
+      padding: 8px 18px;
+      margin: 5px;
+      color: #2D3635;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a.button:hover {
+      background-color: #929e9c;
+    }
+
+    .logo {
+      display: block;
+      margin: 30px auto;
+      width: 250px;
+    }
+
+    .code-box {
+      background: #0b1220;
+      border: 2px solid #1e293b;
+      padding: 16px;
+      width: fit-content;
+      font-family: monospace;
+      font-size: 14px;
+      color: #e5e7eb;
+      margin: 20px auto;
+    }
+
+    .blue { color: #38bdf8; }
+    .yellow { color: #fbbf24; }
+    .green { color: #4ade80; }
+
+    /* Mobile: stack sidebar on top */
+    @media (max-width: 900px) {
+      .layout { flex-direction: column; }
+      .sidebar { width: auto; position: static; }
+      .main { padding: 20px; }
+    }
+  </style>
 </head>
 
 <body>
-    <h1>Welcome to the JanekTech Github Site!</h1>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>Menu</h2>
+      <a class="side-link" href="./Apps">Apps</a>
+      <a class="side-link" href="./addons">Addons</a>
+      <a class="side-link" href="https://janektech.wixsite.com/janeksdownload">Wix Site</a>
+      <a class="side-link" href="./recent">Recent</a>
+    </aside>
 
-    <img src="logo2.gif" class="logo" alt="JanekTech logo">
+    <main class="main">
+      <h1>Welcome to the JanekTech Github Site!</h1>
 
-    <div class="nav">
-        <a class="button" href="https://janektech.wixsite.com/janeksdownload">
-            Second Wix Site
-        </a>
+      <img src="logo2.gif" class="logo" alt="JanekTech logo">
+
+      <div class="nav">
         <a class="button" href="./Apps">Apps</a>
         <a class="button" href="./addons">Addons</a>
-    </div>
+        
+      </div>
 
-    <div class="code-box">
+      <div class="code-box">
 <pre>
-<span class="blue">import</span> easydata as main # New Python addon dropped!</span>
-<span class="blue">data</span> = targets, _ = main.readAll("file")</span>
+<span class="blue">import</span> easydata as main # New Python addon dropped!
+<span class="blue">data</span> = targets, _ = main.readAll("file")
 
 <span class="green">print</span>(data[<span class="yellow">"apple"</span>])
 <span class="green">print</span>(data[<span class="yellow">"mango"</span>])
 </pre>
-    </div>
+      </div>
 
-    <h1>Currently Working On:</h1>
-    <ul>
+      <h1>Currently Working On:</h1>
+      <ul>
         <li>JanekTech Easy File Server</li>
-    </ul>
-
+      </ul>
+    </main>
+  </div>
 </body>
 </html>
-
-
-
-
