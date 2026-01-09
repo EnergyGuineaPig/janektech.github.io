@@ -120,6 +120,30 @@
       .sidebar { width: auto; position: static; }
       .main { padding: 20px; }
     }
+	.img-box {
+	  width: 100px;
+	  height: 120px;
+	  border: 3px solid #777;
+	  background: #151a19;
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  justify-content: center;
+	  gap: 6px;
+	}
+
+	.img-box img {
+	  width: 120px;
+	  height: 120px;
+	  object-fit: contain;
+	}
+
+	.img-text {
+	  font-size: 12px;
+	  color: #e6e6e6;
+	  font-family: monospace;   /* retro look */
+	  letter-spacing: 1px;
+	}
   </style>
 </head>
 
@@ -127,6 +151,11 @@
   <div class="layout">
     <aside class="sidebar">
       <h2>Menu</h2>
+	  <div class="img-box">
+		<img src="boar.jpeg" alt="Preview">
+		
+		</div>
+		<div class="img-text">Funny Boar</div>
       <a class="side-link" href="./Apps">Apps</a>
       <a class="side-link" href="./addons">Addons</a>
       <a class="side-link" href="https://janektech.wixsite.com/janeksdownload">Wix Site</a>
@@ -156,10 +185,9 @@
 
       <h1>Currently Working On:</h1>
       <ul>
-        <li> I am currently slacking off =]</li>
+        <li>JanekTech Easy File Server</li>
       </ul>
     </main>
   </div>
 </body>
 </html>
-
