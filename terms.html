@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JanekTech Website</title>
+
+  <style>
+    html {
+      background: #000;
+    }
+
+    /* Page layout: sidebar + main */
+    body {
+      margin: 0;
+      color: #dddddd;
+      font-family: "Courier New", monospace;
+    }
+
+    .layout {
+      max-width: 1200px;      /* overall width including sidebar */
+      margin: 40px auto;
+      padding: 0 20px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;           /* adjust to taste */
+      background: #151a19;
+      border: 3px solid #777;
+      box-shadow: 0 0 0 4px #555;
+      padding: 16px;
+      position: sticky;       /* stays visible while scrolling */
+      top: 20px;
+    }
+
+    .sidebar h2 {
+      margin: 0 0 12px;
+      font-size: 16px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .side-link {
+      display: block;
+      background: #8e9493;
+      border: 2px solid #2D3635;
+      padding: 10px 12px;
+      margin: 8px 0;
+      color: #2D3635;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .side-link:hover {
+      background: #929e9c;
+    }
+
+    /* Main content box (your old body styles moved here) */
+    .main {
+      flex: 1;
+      background: #2D3635;
+      border: 3px solid #777;
+      box-shadow: 0 0 0 4px #555;
+      padding: 20px 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 0;
+      text-transform: uppercase;
+    }
+
+    .nav {
+      text-align: center;
+      margin: 20px 0 30px;
+    }
+
+    a.button {
+      display: inline-block;
+      background-color: #8e9493;
+      border: 2px solid #2D3635;
+      padding: 8px 18px;
+      margin: 5px;
+      color: #2D3635;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a.button:hover {
+      background-color: #929e9c;
+    }
+
+    .logo {
+      display: block;
+      margin: 30px auto;
+      width: 250px;
+    }
+
+    .code-box {
+      background: #0b1220;
+      border: 2px solid #1e293b;
+      padding: 16px;
+      width: fit-content;
+      font-family: monospace;
+      font-size: 14px;
+      color: #e5e7eb;
+      margin: 20px auto;
+    }
+
+    .blue { color: #38bdf8; }
+    .yellow { color: #fbbf24; }
+    .green { color: #4ade80; }
+
+    /* Mobile: stack sidebar on top */
+    @media (max-width: 900px) {
+      .layout { flex-direction: column; }
+      .sidebar { width: auto; position: static; }
+      .main { padding: 20px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>Menu</h2>
+      <a class="side-link" href="./">Home</a>
+      <a class="side-link" href="./Apps">Apps</a>
+      <a class="side-link" href="./addons">Addons</a>
+
+    </aside>
+
+    <main class="main">
+      <h1>Terms and conditions of using my apps!</h1>
+
+      <img src="logo2.gif" class="logo" alt="JanekTech logo">
+
+
+      <h1>Terms and conditions:</h1>
+      
+        <h2>1. Use of the Apps</h2>
+        You are allowed to use the Apps for personal or internal business purposes only. You must use the Apps in a lawful manner and follow all applicable laws.
+
+        <h2>2. No Third-Party Distribution</h2>
+
+        <a><font face="Arial Black">You may not copy, distribute, sell, sublicense, rent, lease, share, or redistribute the Apps to any third party in any form.</font>
+        This includes uploading the Apps to third-party platforms, app stores, websites, or sharing the source code or compiled files.
+        </a>
+        <h2>3. Ownership</h2>
+        <a>
+        All rights, title, and interest in the Apps, including all content, code, and intellectual property, remain the exclusive property of the Apps owner.
+        </a>
+       <h2> 4. Modifications</h2>
+        <a>
+        You may not modify, reverse engineer, decompile, or attempt to extract the source code of the Apps unless explicitly permitted by the Apps owner.
+        </a>
+        <h2>5. No Warranty</h2>
+        <a>
+        The Apps are provided “as is”, without warranties of any kind. The Apps owner does not guarantee that the Apps will be error-free or uninterrupted.
+        </a>
+        <h2>6. Limitation of Liability</h2>
+        <a>
+        The Apps owner is not responsible for any damages, losses, or issues resulting from the use or inability to use the Apps.
+        </a>
+        <h2>7. Changes to These Terms</h2>
+        <a>
+        These Terms & Conditions may be updated at any time. Continued use of the Apps means you accept the updated terms.
+        </a>
+    </main>
+  </div>
+</body>
+</html>
