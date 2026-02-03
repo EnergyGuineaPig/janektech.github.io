@@ -78,20 +78,23 @@
       margin: 20px 0 30px;
     }
 
-    a.button {
-      display: inline-block;
-      background-color: #1C0D2B;
-      border: 2px solid #1C0D2B;
-      padding: 8px 18px;
-      margin: 5px;
-      color: #1C0D2B;
-      text-decoration: none;
-      font-weight: bold;
-    }
+   .button {
+	  display: inline-block;
+	  background-color: #1C0D2B;   /* purple */
+	  border: 2px solid #6d3fb2;   /* lighter purple border */
+	  padding: 8px 18px;
+	  margin: 5px;
+	  color: #ffffff;             /* white text */
+	  text-decoration: none;
+	  font-weight: bold;
+	  border-radius: 6px;         /* subtle modern touch */
+	  transition: background-color 0.2s ease, transform 0.15s ease;
+	}
 
-    a.button:hover {
-      background-color: #929e9c;
-    }
+	a.button:hover {
+	  background-color: #3b1d5a;  /* lighter purple on hover */
+	  transform: translateY(-2px);
+	}
 
     .logo {
       display: block;
@@ -192,6 +195,7 @@
   </div>
 </body>
 </html>
+
 
 
 
