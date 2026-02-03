@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>JanekTech Website</title>
+
+  <!-- IBM Plex Mono -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     html {
@@ -11,12 +16,13 @@
     /* Page layout: sidebar + main */
     body {
       margin: 0;
-      color: #dddddd;
-      font-family: "Courier New", monospace;
+      color: #e6e6e6;
+      font-family: "IBM Plex Mono", monospace;
+      line-height: 1.6;
     }
 
     .layout {
-      max-width: 1200px;      /* overall width including sidebar */
+      max-width: 1200px;
       margin: 40px auto;
       padding: 0 20px;
       display: flex;
@@ -26,12 +32,12 @@
 
     /* Sidebar */
     .sidebar {
-      width: 220px;           /* adjust to taste */
+      width: 220px;
       background: #151a19;
       border: 3px solid #777;
       box-shadow: 0 0 0 4px #555;
       padding: 16px;
-      position: sticky;       /* stays visible while scrolling */
+      position: sticky;
       top: 20px;
     }
 
@@ -40,28 +46,34 @@
       font-size: 16px;
       text-transform: uppercase;
       text-align: center;
+      letter-spacing: 2px;
     }
 
+    /* PURPLE SIDE BUTTONS */
     .side-link {
       display: block;
-      background: #8e9493;
-      border: 2px solid #2D3635;
+      background: #2b143f;
+      border: 2px solid #a78bfa;
       padding: 10px 12px;
-      margin: 8px 0;
-      color: #2D3635;
+      margin: 10px 0;
+      color: #ffffff;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
       text-align: center;
+      border-radius: 6px;
+      transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
     }
 
     .side-link:hover {
-      background: #929e9c;
+      background: #3b1d5a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.4);
     }
 
-    /* Main content box (your old body styles moved here) */
+    /* Main content box */
     .main {
       flex: 1;
-      background: #2D3635;
+      background: #2F1547; /* purple */
       border: 3px solid #777;
       box-shadow: 0 0 0 4px #555;
       padding: 20px 40px;
@@ -71,6 +83,7 @@
       text-align: center;
       margin-top: 0;
       text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     .nav {
@@ -78,19 +91,23 @@
       margin: 20px 0 30px;
     }
 
+    /* PURPLE TOP BUTTONS */
     a.button {
       display: inline-block;
-      background-color: #8e9493;
-      border: 2px solid #2D3635;
+      background-color: #3b1d5a;
+      border: 2px solid #a78bfa;
       padding: 8px 18px;
       margin: 5px;
-      color: #2D3635;
+      color: #ffffff;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      border-radius: 6px;
+      transition: background-color 0.2s ease, transform 0.15s ease;
     }
 
     a.button:hover {
-      background-color: #929e9c;
+      background-color: #4b2770;
+      transform: translateY(-2px);
     }
 
     .logo {
@@ -104,17 +121,20 @@
       border: 2px solid #1e293b;
       padding: 16px;
       width: fit-content;
-      font-family: monospace;
+      font-family: "IBM Plex Mono", monospace;
       font-size: 14px;
       color: #e5e7eb;
       margin: 20px auto;
+      border-radius: 10px;
+      max-width: 100%;
+      overflow-x: auto;
     }
 
     .blue { color: #38bdf8; }
     .yellow { color: #fbbf24; }
     .green { color: #4ade80; }
 
-    /* Mobile: stack sidebar on top */
+    /* Mobile */
     @media (max-width: 900px) {
       .layout { flex-direction: column; }
       .sidebar { width: auto; position: static; }
@@ -122,6 +142,7 @@
     }
   </style>
 </head>
+
 
 <body>
   <div class="layout">
@@ -173,3 +194,4 @@
   </div>
 </body>
 </html>
+
