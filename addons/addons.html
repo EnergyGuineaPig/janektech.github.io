@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>JanekTech Website / addons</title>
+
+  <!-- IBM Plex Mono -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     html { background:#000; }
 
     body{
       margin:0;
-      color:#dddddd;
-      font-family:"Courier New", monospace;
+      color:#e6e6e6;
+      font-family:"IBM Plex Mono", monospace;
+      line-height:1.6;
     }
 
-    /* SAME AS INDEX */
+    /* SAME LAYOUT */
     .layout{
       max-width:1200px;
       margin:40px auto;
@@ -22,7 +28,7 @@
       align-items:flex-start;
     }
 
-    /* SAME AS INDEX */
+    /* Sidebar */
     .sidebar{
       width:220px;
       background:#151a19;
@@ -39,32 +45,40 @@
       font-size:16px;
       text-transform:uppercase;
       text-align:center;
+      letter-spacing:2px;
     }
 
+    /* PURPLE SIDE BUTTONS (fixed) */
     .side-link{
       display:block;
-      background:#8e9493;
-      border:2px solid #2D3635;
+      background:#2b143f;        /* dark purple */
+      border:2px solid #a78bfa;  /* purple border */
       padding:10px 12px;
-      margin:8px 0;
-      color:#2D3635;
+      margin:10px 0;
+      color:#ffffff;             /* white text */
       text-decoration:none;
-      font-weight:bold;
+      font-weight:600;
       text-align:center;
+      border-radius:6px;
+      transition:background-color .2s ease, transform .15s ease, box-shadow .15s ease;
     }
 
-    .side-link:hover{ background:#929e9c; }
+    .side-link:hover{
+      background:#3b1d5a;        /* lighter purple */
+      transform:translateY(-2px);
+      box-shadow:0 6px 14px rgba(0,0,0,.4);
+    }
 
     /* Optional active highlight */
     .side-link.active{
-      outline:2px solid #dddddd;
+      outline:2px solid #38bdf8;     /* cyan highlight */
       outline-offset:2px;
     }
 
-    /* SAME AS INDEX: main framed panel */
+    /* Main framed panel (PURPLE like index) */
     .main{
       flex:1;
-      background:#2D3635;
+      background:#2F1547;        /* main purple */
       border:3px solid #777;
       box-shadow:0 0 0 4px #555;
       padding:20px 40px;
@@ -75,6 +89,7 @@
       text-align:center;
       margin-top:0;
       text-transform:uppercase;
+      letter-spacing:2px;
     }
 
     .logo{
@@ -89,12 +104,13 @@
       border:2px solid #1e293b;
       padding:16px;
       width:fit-content;
-      font-family:monospace;
+      font-family:"IBM Plex Mono", monospace;
       font-size:14px;
       color:#e5e7eb;
       margin:20px 0;
       max-width:100%;
       overflow:auto;
+      border-radius:10px;
     }
 
     .code-text{
@@ -102,11 +118,13 @@
       border:1px solid #1e293b;
       padding:10px 14px;
       width:fit-content;
-      font-family:monospace;
+      font-family:"IBM Plex Mono", monospace;
       font-size:12px;
       color:#ffffff;
       text-decoration:none;
       display:inline-block;
+      border-radius:8px;
+      transition:background-color .2s ease, border-color .2s ease, color .2s ease;
     }
 
     .code-text:hover{
@@ -127,30 +145,36 @@
       .sidebar{ width:auto; position:static; }
       .main{ padding:20px; }
     }
-    	.img-box {
-	  width: 100px;
-	  height: 120px;
-	  border: 3px solid #777;
-	  background: #151a19;
-	  display: flex;
-	  flex-direction: column;
-	  align-items: center;
-	  justify-content: center;
-	  gap: 6px;
-	}
 
-	.img-box img {
-	  width: 120px;
-	  height: 120px;
-	  object-fit: contain;
-	}
+    /* Sidebar image box */
+    .img-box{
+      width:100px;
+      height:120px;
+      border:3px solid #777;
+      background:#151a19;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      border-radius:8px;
+      overflow:hidden;
+    }
 
-	.img-text {
-	  font-size: 12px;
-	  color: #e6e6e6;
-	  font-family: monospace;   /* retro look */
-	  letter-spacing: 1px;
-	}
+    .img-box img{
+      width:120px;
+      height:120px;
+      object-fit:contain;
+    }
+
+    .img-text{
+      font-size:12px;
+      color:#e6e6e6;
+      font-family:"IBM Plex Mono", monospace;
+      letter-spacing:1px;
+      text-align:center;
+      margin-top:6px;
+    }
   </style>
 </head>
 
@@ -279,6 +303,7 @@
   </div>
 </body>
 </html>
+
 
 
 
