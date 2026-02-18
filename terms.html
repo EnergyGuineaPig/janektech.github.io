@@ -1,28 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>JanekTech Website</title>
-
-  <!-- IBM Plex Mono -->
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     html {
-      background: #000;
+      background: #000000;
+      padding-top: 70px; /* adjust to match topbar height */
     }
 
     /* Page layout: sidebar + main */
     body {
-      margin: 0;
-      color: #e6e6e6;
-      font-family: "IBM Plex Mono", monospace;
-      line-height: 1.6;
+      margin: 70;
+      color: #dddddd;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 
     .layout {
-      max-width: 1200px;
+      max-width: 1200px;      /* overall width including sidebar */
       margin: 40px auto;
       padding: 0 20px;
       display: flex;
@@ -32,58 +27,72 @@
 
     /* Sidebar */
     .sidebar {
-      width: 220px;
+      width: 220px;           /* adjust to taste */
       background: #151a19;
       border: 3px solid #777;
       box-shadow: 0 0 0 4px #555;
       padding: 16px;
-      position: sticky;
+      position: sticky;       /* stays visible while scrolling */
       top: 20px;
+      border-radius: 8px;
     }
+ 
+    .topbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;          /* full width */
+    background: #151a19;
+    border-bottom: 3px solid #777;
+    box-shadow: 0 0 0 5px #555;
+    padding: 16px;
+    z-index: 9999;
+    border-radius: 8px;
+    }
+
 
     .sidebar h2 {
       margin: 0 0 12px;
       font-size: 16px;
       text-transform: uppercase;
       text-align: center;
-      letter-spacing: 2px;
+      
     }
 
-    /* PURPLE SIDE BUTTONS */
     .side-link {
       display: block;
-      background: #2b143f;
-      border: 2px solid #a78bfa;
-      padding: 10px 12px;
-      margin: 10px 0;
-      color: #ffffff;
+      background: #8e9493;
+      border: 2px solid #2D3635;
+      padding: 10px 16px;
+      margin: 8px 0;
+      color: #2D3635;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: bold;
       text-align: center;
-      border-radius: 6px;
-      transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
     }
 
     .side-link:hover {
-      background: #3b1d5a;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+      background: #929e9c;
     }
 
-    /* Main content box */
+    /* Main content box (your old body styles moved here) */
     .main {
-      flex: 1;
-      background: #2F1547; /* purple */
-      border: 3px solid #777;
-      box-shadow: 0 0 0 4px #555;
-      padding: 20px 40px;
+        flex: 1;
+        background: #2D3635;
+        border: 7px solid #777;
+        box-shadow: 0 0 0 4px #555;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* vertical */
+        align-items: center;     /* horizontal */
+        padding: 40px;
     }
 
     h1 {
       text-align: center;
       margin-top: 0;
       text-transform: uppercase;
-      letter-spacing: 2px;
     }
 
     .nav {
@@ -91,29 +100,27 @@
       margin: 20px 0 30px;
     }
 
-    /* PURPLE TOP BUTTONS */
     a.button {
       display: inline-block;
-      background-color: #3b1d5a;
-      border: 2px solid #a78bfa;
+      background-color: #8e9493;
+      border: 3px solid #2D3635;
       padding: 8px 18px;
       margin: 5px;
       color: #ffffff;
       text-decoration: none;
-      font-weight: 600;
-      border-radius: 6px;
-      transition: background-color 0.2s ease, transform 0.15s ease;
+      font-weight: bold;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      border-radius: 8px;
     }
 
     a.button:hover {
-      background-color: #4b2770;
-      transform: translateY(-2px);
+      background-color: #a1aaa9;
     }
 
     .logo {
       display: block;
       margin: 30px auto;
-      width: 250px;
+      width: 450px;
     }
 
     .code-box {
@@ -121,47 +128,76 @@
       border: 2px solid #1e293b;
       padding: 16px;
       width: fit-content;
-      font-family: "IBM Plex Mono", monospace;
+      font-family: monospace;
       font-size: 14px;
       color: #e5e7eb;
       margin: 20px auto;
-      border-radius: 10px;
-      max-width: 100%;
-      overflow-x: auto;
     }
-
+    .micrologo {
+    display: block;
+      margin: 30px auto;
+      width: 100px;
+    }
     .blue { color: #38bdf8; }
     .yellow { color: #fbbf24; }
     .green { color: #4ade80; }
 
-    /* Mobile */
+    /* Mobile: stack sidebar on top */
     @media (max-width: 900px) {
       .layout { flex-direction: column; }
       .sidebar { width: auto; position: static; }
       .main { padding: 20px; }
     }
+	.img-box {
+	  width: 100px;
+	  height: 120px;
+	  border: 3px solid #777;
+	  background: #151a19;
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  justify-content: center;
+	  gap: 6px;
+	}
+
+	.img-box img {
+	  width: 120px;
+	  height: 120px;
+	  object-fit: contain;
+	}
+
+	.img-text {
+	  font-size: 12px;
+	  color: #e6e6e6;
+	  font-family: monospace;   /* retro look */
+	  letter-spacing: 1px;
+
+	}
+
+    .center-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
   </style>
 </head>
 
-
 <body>
   <div class="layout">
-    <aside class="sidebar">
-      <h2>Menu</h2>
-      <a class="side-link" href="./">Home</a>
-      <a class="side-link" href="./apps/Apps">Apps</a>
-      <a class="side-link" href="./addons/addons">Addons</a>
+    <div class="topbar">
+        <a>JanekTech.pl / </a>
+        <a class="button" href="./apps/apps">Apps</a>
+        <a class="button" href="./addons/addons">Addons</a>
+        <a class="button" href="./terms">Terms</a>
+        <a class="button" href="./">Home</a>
+        <a>jan.g 2026</a>
+    </div>
 
-    </aside>
 
     <main class="main">
-      <h1>Terms and conditions of using my apps!</h1>
-
-      <img src="logo2.gif" class="logo" alt="JanekTech logo">
-
-
-      <h1>Terms and conditions:</h1>
-      
+      <img src="logo.png" class="logo" alt="JanekTech logo">
+        <h1>Terms of usage</h1>
         <h2>1. Use of the Apps</h2>
         You are allowed to use the Apps for personal or internal business purposes only. You must use the Apps in a lawful manner and follow all applicable laws.
 
@@ -190,9 +226,8 @@
         <a>
         These Terms & Conditions may be updated at any time. Continued use of the Apps means you accept the updated terms.
         </a>
-    </main>
+      </div>
+
   </div>
 </body>
 </html>
-
-
