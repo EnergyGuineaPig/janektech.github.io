@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet">
-	<link rel="icon" href="images/webicon.png" type="image/x-icon">
   <title>JanekTech Website</title>
 
   <style>
     html {
-      background: #000;
+      background: #000000;
+      padding-top: 70px; /* adjust to match topbar height */
     }
 
     /* Page layout: sidebar + main */
     body {
-      margin: 0;
+      margin: 70;
       color: #dddddd;
-      font-family: "IBM Plex Mono", monospace;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 
     .layout {
@@ -35,45 +34,59 @@
       padding: 16px;
       position: sticky;       /* stays visible while scrolling */
       top: 20px;
+      border-radius: 8px;
     }
+ 
+    .topbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;          /* full width */
+    background: #151a19;
+    border-bottom: 3px solid #777;
+    box-shadow: 0 0 0 5px #555;
+    padding: 16px;
+    z-index: 9999;
+    border-radius: 8px;
+    }
+
 
     .sidebar h2 {
       margin: 0 0 12px;
       font-size: 16px;
       text-transform: uppercase;
       text-align: center;
+      
     }
 
     .side-link {
-	  display: block;
-	  background: #2b143f;        /* dark purple */
-	  border: 2px solid #6d3fb2;  /* purple border */
-	  padding: 10px 12px;
-	  margin: 10px 0;
-	  color: #ffffff;             /* white text */
-	  text-decoration: none;
-	  font-weight: bold;
-	  text-align: center;
-	  border-radius: 6px;
-	  transition:
-	    background-color 0.2s ease,
-	    transform 0.15s ease,
-	    box-shadow 0.15s ease;
-	}
+      display: block;
+      background: #8e9493;
+      border: 2px solid #2D3635;
+      padding: 10px 16px;
+      margin: 8px 0;
+      color: #2D3635;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+    }
 
-	.side-link:hover {
-	  background: #3b1d5a;        /* lighter purple */
-	  transform: translateY(-2px);
-	  box-shadow: 0 6px 14px rgba(0,0,0,0.4);
-	}
+    .side-link:hover {
+      background: #929e9c;
+    }
 
     /* Main content box (your old body styles moved here) */
     .main {
-      flex: 1;
-      background: #2F1547;
-      border: 3px solid #777;
-      box-shadow: 0 0 0 4px #555;
-      padding: 20px 40px;
+        flex: 1;
+        background: #2D3635;
+        border: 7px solid #777;
+        box-shadow: 0 0 0 4px #555;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* vertical */
+        align-items: center;     /* horizontal */
+        padding: 40px;
     }
 
     h1 {
@@ -87,28 +100,27 @@
       margin: 20px 0 30px;
     }
 
-   .button {
-	  display: inline-block;
-	  background-color: #1C0D2B;   /* purple */
-	  border: 2px solid #6d3fb2;   /* lighter purple border */
-	  padding: 8px 18px;
-	  margin: 5px;
-	  color: #ffffff;             /* white text */
-	  text-decoration: none;
-	  font-weight: bold;
-	  border-radius: 6px;         /* subtle modern touch */
-	  transition: background-color 0.2s ease, transform 0.15s ease;
-	}
+    a.button {
+      display: inline-block;
+      background-color: #8e9493;
+      border: 3px solid #2D3635;
+      padding: 8px 18px;
+      margin: 5px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      border-radius: 8px;
+    }
 
-	a.button:hover {
-	  background-color: #3b1d5a;  /* lighter purple on hover */
-	  transform: translateY(-2px);
-	}
+    a.button:hover {
+      background-color: #a1aaa9;
+    }
 
     .logo {
       display: block;
       margin: 30px auto;
-      width: 250px;
+      width: 450px;
     }
 
     .code-box {
@@ -121,7 +133,11 @@
       color: #e5e7eb;
       margin: 20px auto;
     }
-
+    .micrologo {
+    display: block;
+      margin: 30px auto;
+      width: 100px;
+    }
     .blue { color: #38bdf8; }
     .yellow { color: #fbbf24; }
     .green { color: #4ade80; }
@@ -155,84 +171,45 @@
 	  color: #e6e6e6;
 	  font-family: monospace;   /* retro look */
 	  letter-spacing: 1px;
+
 	}
+
+    .center-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
   </style>
 </head>
 
 <body>
   <div class="layout">
+    <div class="topbar">
+        <a>JanekTech.pl / </a>
+        <a class="button" href="./apps/apps">Apps</a>
+        <a class="button" href="./addons/addons">Addons</a>
+        <a class="button" href="./terms">Terms</a>
+        <a>jan.g 2026</a>
+    </div>
     <aside class="sidebar">
-      <h2>Menu</h2>
-	  <div class="img-box">
-		<img src="./images/boar.jpeg" alt="Preview">
-		
-		</div>
-		<div class="img-text">Funny Boar</div>
-      <a class="side-link" href="./apps/Apps">Apps</a>
-      <a class="side-link" href="./addons/addons">Addons</a>
-      <a class="side-link" href="https://janektech.wixsite.com/janeksdownload">Wix Site</a>
-      <a class="side-link" href="./recent">Recent</a>
-	  <a class="side-link" href="./terms">Terms&conditions</a>
-    <h2>Information(important):</h2>
-    <a> All of the new janektech apps form now will be using janektech MK3 installers!</a>
-    <a>----------</a>
-    <a>The doctor Setup MK3 <font color="Red">BETA!</font> currently <font color="red">isnt available</font> for the public</a>
+      <h2>Recent information</h2>
+        <a>This is a new main site</a>
+        <h2>Installers:</h2>
+        <a>From now on all of the JanekTech apps will come with the JanekTech MK3(0.0.0.8) Installer</a>
+        
+        <h2>App info:</h2>
+        <a>Releasing File hider 1.0. MK3 setup creator is currently <font color="red">not available</font> for the public!</a>
+
     </aside>
 
-
-
-
-
-
-
     <main class="main">
-		<h1>NEW JOME 2.6 AND ITS ONW SITE JUST RELEASED!</h1>
+      <img src="logo.png" class="logo" alt="JanekTech logo">
+        <h1>Welcome to JanekTech.pl!</h1>
+        <h2>Check out the new apps!</h2>
 
-      <img src="logo2.gif" class="logo" alt="JanekTech logo">
-
-      <div class="nav">
-        <a class="button" href="./apps/Apps">Apps</a>
-        <a class="button" href="./addons/addons">Addons</a>
-		<a class="button" href="https://janektech.wixsite.com/jome">Checkout the jome official wixsite!</a>
-        
       </div>
 
-      
-
-
-
-
-      <div class="code-box">
-<pre>
-<span class="blue">import</span> easydata as main # New Python addon dropped!
-<span class="blue">data</span> = targets, _ = main.readAll("file")
-
-<span class="green">print</span>(data[<span class="yellow">"apple"</span>])
-<span class="green">print</span>(data[<span class="yellow">"mango"</span>])
-</pre>
-      </div>
-
-      <h1>Currently Working On:</h1>
-      <ul>
-        <li>slacking off</li>
-      </ul>
-    </main>
   </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
