@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JanekTech Website</title>
+
+  <style>
+    html {
+      background: #000000;
+      padding-top: 70px; /* adjust to match topbar height */
+    }
+
+    /* Page layout: sidebar + main */
+    body {
+      margin: 70;
+      color: #dddddd;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .layout {
+      max-width: 1200px;      /* overall width including sidebar */
+      margin: 40px auto;
+      padding: 0 20px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;           /* adjust to taste */
+      background: #151a19;
+      border: 3px solid #777;
+      box-shadow: 0 0 0 4px #555;
+      padding: 16px;
+      position: sticky;       /* stays visible while scrolling */
+      top: 20px;
+      border-radius: 8px;
+    }
+ 
+    .topbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;          /* full width */
+    background: #151a19;
+    border-bottom: 3px solid #777;
+    box-shadow: 0 0 0 5px #555;
+    padding: 16px;
+    z-index: 9999;
+    border-radius: 8px;
+    }
+
+
+    .sidebar h2 {
+      margin: 0 0 12px;
+      font-size: 16px;
+      text-transform: uppercase;
+      text-align: center;
+      
+    }
+
+    .side-link {
+      display: block;
+      background: #8e9493;
+      border: 2px solid #2D3635;
+      padding: 10px 16px;
+      margin: 8px 0;
+      color: #2D3635;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .side-link:hover {
+      background: #929e9c;
+    }
+
+    /* Main content box (your old body styles moved here) */
+    .main {
+        flex: 1;
+        background: #2D3635;
+        border: 7px solid #777;
+        box-shadow: 0 0 0 4px #555;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* vertical */
+        align-items: center;     /* horizontal */
+        padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 0;
+      text-transform: uppercase;
+    }
+
+    .nav {
+      text-align: center;
+      margin: 20px 0 30px;
+    }
+
+    a.button {
+      display: inline-block;
+      background-color: #8e9493;
+      border: 3px solid #2D3635;
+      padding: 8px 18px;
+      margin: 5px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      border-radius: 8px;
+    }
+
+    a.button:hover {
+      background-color: #a1aaa9;
+    }
+
+    .logo {
+      display: block;
+      margin: 30px auto;
+      width: 450px;
+    }
+
+    .code-box {
+      background: #0b1220;
+      border: 2px solid #1e293b;
+      padding: 16px;
+      width: fit-content;
+      font-family: monospace;
+      font-size: 14px;
+      color: #e5e7eb;
+      margin: 20px auto;
+    }
+    .micrologo {
+    display: block;
+      margin: 30px auto;
+      width: 100px;
+    }
+    .blue { color: #38bdf8; }
+    .yellow { color: #fbbf24; }
+    .green { color: #4ade80; }
+
+    /* Mobile: stack sidebar on top */
+    @media (max-width: 900px) {
+      .layout { flex-direction: column; }
+      .sidebar { width: auto; position: static; }
+      .main { padding: 20px; }
+    }
+	.img-box {
+	  width: 100px;
+	  height: 120px;
+	  border: 3px solid #777;
+	  background: #151a19;
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  justify-content: center;
+	  gap: 6px;
+	}
+
+	.img-box img {
+	  width: 120px;
+	  height: 120px;
+	  object-fit: contain;
+	}
+
+	.img-text {
+	  font-size: 12px;
+	  color: #e6e6e6;
+	  font-family: monospace;   /* retro look */
+	  letter-spacing: 1px;
+
+	}
+
+    .center-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .side-container {
+        width: 380px;
+        background: #151a19;
+        border: 1px solid #777;
+        box-shadow: 0 0 0 4px #555;
+        padding: 16px;
+        color: #dddddd;
+        margin-right: auto;
+        margin-left: 150px;
+        margin-top: 10px;
+    }
+    .nice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: #151a19;
+  border: 3px solid #777;
+  box-shadow: 0 0 0 4px #555;
+  color: #dddddd;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+}
+
+    /* Header */
+    .nice-table thead {
+    background: #2D3635;
+    }
+
+    .nice-table th {
+    padding: 12px;
+    border-bottom: 3px solid #777;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    }
+
+    /* Body cells */
+    .nice-table td {
+    padding: 10px 5px;
+    border-bottom: 1px solid #555;
+
+    }
+
+    /* Row hover */
+    .nice-table tbody tr:hover {
+    background: #1e2423;
+    }
+
+    /* Zebra striping */
+    .nice-table tbody tr:nth-child(even) {
+    background: #181e1d;
+    }
+    .max-400 {
+        max-width: 100px;
+        max-height: 100px;
+    }
+    .nice-table th,
+    .nice-table td {
+        align-items: center;
+    }
+
+    .nice-table td:nth-child(4) {
+        text-align: left;
+    }
+
+    .nice-table img {
+    max-width: 120px;
+    max-height: 120px;
+    display: block;
+    }
+
+    .nice-table .button {
+    padding: 6px 14px;
+    font-size: 13px;
+    }
+
+    .app-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: #151a19;
+  border: 3px solid #777;
+  box-shadow: 0 0 0 4px #555;
+  color: #dddddd;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+}
+
+/* Header */
+.app-table thead {
+  background: #2D3635;
+}
+
+.app-table th {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 3px solid #777;
+  text-transform: uppercase;
+}
+
+/* Cells */
+.app-table td {
+  padding: 12px;
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid #555;
+}
+
+    /* Column widths */
+    .app-table th:nth-child(1),
+    .app-table td:nth-child(1) { width: 140px; }
+
+    .app-table th:nth-child(3),
+    .app-table td:nth-child(3) { width: 120px; }
+
+    .app-table th:nth-child(4),
+    .app-table td:nth-child(4) { width: 140px; }
+
+    /* Image */
+    .app-img {
+    max-width: 120px;
+    max-height: 120px;
+    display: block;
+    margin: 0 auto;
+    }
+
+    /* Button inside table */
+    .app-table .button {
+    padding: 6px 14px;
+    font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="layout">
+    <div class="topbar">
+        <a>JanekTech.pl / </a>
+        <a class="button" href="./apps/apps">Apps</a>
+        <a class="button" href="./addons/addons">Addons</a>
+        <a class="button" href="./terms">Terms</a>
+        <a>jan.g 2026</a>
+    </div>
+
+    <main class="main">
+      <img src="logo.png" class="logo" alt="JanekTech logo">
+        <h1>Apps list:</h1>
+        <a>By pressing "download" you agree to the terms of usage at janektech.pl/terms</a>
+        
+        <div class="side-container">
+            <h1>Newest App:</h1>
+            <table class="nice-table">
+                <thead>
+                    <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Version</th>
+                    <th>link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td><img src="newestapp.png" class="max-400"></td>
+                    <td>App One</td>
+                    <td>1.2.0</td>
+                    <td>Stable</td>
+                    </tr>
+                </tbody>
+                </table>
+        </div>
+        <h2>Rest:</h2>
+            <table class="app-table">
+            <thead>
+                <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Version</th>
+                <th>Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td><img src="noimage.png" class="app-img"></td>
+                <td>App One</td>
+                <td>1.2.0</td>
+                <td><a class="button" href="./terms">Download</a></td>
+                </tr>
+            </tbody>
+            </table>
+        <a>Didn't find the Version that you were looking for? Press <a class="button" href="../versions-all">See all versions</a></a>
+      </div>
+      
+
+  </div>
+</body>
+</html>
