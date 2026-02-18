@@ -1,202 +1,200 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>JanekTech Website / addons</title>
-
-  <!-- IBM Plex Mono -->
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <title>JanekTech Website</title>
 
   <style>
-    html { background:#000; }
-
-    body{
-      margin:0;
-      color:#e6e6e6;
-      font-family:"IBM Plex Mono", monospace;
-      line-height:1.6;
+    html {
+      background: #000000;
+      padding-top: 70px; /* adjust to match topbar height */
     }
 
-    /* SAME LAYOUT */
-    .layout{
-      max-width:1200px;
-      margin:40px auto;
-      padding:0 20px;
-      display:flex;
-      gap:20px;
-      align-items:flex-start;
+    /* Page layout: sidebar + main */
+    body {
+      margin: 70;
+      color: #dddddd;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .layout {
+      max-width: 1200px;      /* overall width including sidebar */
+      margin: 40px auto;
+      padding: 0 20px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
     }
 
     /* Sidebar */
-    .sidebar{
-      width:220px;
-      background:#151a19;
-      border:3px solid #777;
-      box-shadow:0 0 0 4px #555;
-      padding:16px;
-      position:sticky;
-      top:20px;
-      height:fit-content;
+    .sidebar {
+      width: 220px;           /* adjust to taste */
+      background: #151a19;
+      border: 3px solid #777;
+      box-shadow: 0 0 0 4px #555;
+      padding: 16px;
+      position: sticky;       /* stays visible while scrolling */
+      top: 20px;
+      border-radius: 8px;
+    }
+ 
+    .topbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;          /* full width */
+    background: #151a19;
+    border-bottom: 3px solid #777;
+    box-shadow: 0 0 0 5px #555;
+    padding: 16px;
+    z-index: 9999;
+    border-radius: 8px;
     }
 
-    .sidebar h2{
-      margin:0 0 12px;
-      font-size:16px;
-      text-transform:uppercase;
-      text-align:center;
-      letter-spacing:2px;
+
+    .sidebar h2 {
+      margin: 0 0 12px;
+      font-size: 16px;
+      text-transform: uppercase;
+      text-align: center;
+      
     }
 
-    /* PURPLE SIDE BUTTONS (fixed) */
-    .side-link{
-      display:block;
-      background:#2b143f;        /* dark purple */
-      border:2px solid #a78bfa;  /* purple border */
-      padding:10px 12px;
-      margin:10px 0;
-      color:#ffffff;             /* white text */
-      text-decoration:none;
-      font-weight:600;
-      text-align:center;
-      border-radius:6px;
-      transition:background-color .2s ease, transform .15s ease, box-shadow .15s ease;
+    .side-link {
+      display: block;
+      background: #8e9493;
+      border: 2px solid #2D3635;
+      padding: 10px 16px;
+      margin: 8px 0;
+      color: #2D3635;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
     }
 
-    .side-link:hover{
-      background:#3b1d5a;        /* lighter purple */
-      transform:translateY(-2px);
-      box-shadow:0 6px 14px rgba(0,0,0,.4);
+    .side-link:hover {
+      background: #929e9c;
     }
 
-    /* Optional active highlight */
-    .side-link.active{
-      outline:2px solid #38bdf8;     /* cyan highlight */
-      outline-offset:2px;
+    /* Main content box (your old body styles moved here) */
+    .main {
+        flex: 1;
+        background: #2D3635;
+        border: 7px solid #777;
+        box-shadow: 0 0 0 4px #555;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* vertical */
+        align-items: center;     /* horizontal */
+        padding: 40px;
     }
 
-    /* Main framed panel (PURPLE like index) */
-    .main{
-      flex:1;
-      background:#2F1547;        /* main purple */
-      border:3px solid #777;
-      box-shadow:0 0 0 4px #555;
-      padding:20px 40px;
-      min-width:0;
+    h1 {
+      text-align: center;
+      margin-top: 0;
+      text-transform: uppercase;
     }
 
-    h1{
-      text-align:center;
-      margin-top:0;
-      text-transform:uppercase;
-      letter-spacing:2px;
+    .nav {
+      text-align: center;
+      margin: 20px 0 30px;
     }
 
-    .logo{
-      display:block;
-      margin:30px auto;
-      width:250px;
+    a.button {
+      display: inline-block;
+      background-color: #8e9493;
+      border: 3px solid #2D3635;
+      padding: 8px 18px;
+      margin: 5px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      border-radius: 8px;
     }
 
-    /* CODE BOX */
-    .code-box{
-      background:#0b1220;
-      border:2px solid #1e293b;
-      padding:16px;
-      width:fit-content;
-      font-family:"IBM Plex Mono", monospace;
-      font-size:14px;
-      color:#e5e7eb;
-      margin:20px 0;
-      max-width:100%;
-      overflow:auto;
-      border-radius:10px;
+    a.button:hover {
+      background-color: #a1aaa9;
     }
 
-    .code-text{
-      background:#0b1220;
-      border:1px solid #1e293b;
-      padding:10px 14px;
-      width:fit-content;
-      font-family:"IBM Plex Mono", monospace;
-      font-size:12px;
-      color:#ffffff;
-      text-decoration:none;
-      display:inline-block;
-      border-radius:8px;
-      transition:background-color .2s ease, border-color .2s ease, color .2s ease;
+    .logo {
+      display: block;
+      margin: 30px auto;
+      width: 450px;
     }
 
-    .code-text:hover{
-      background:#111827;
-      border-color:#38bdf8;
-      color:#38bdf8;
+    .code-box {
+      background: #0b1220;
+      border: 2px solid #1e293b;
+      padding: 16px;
+      width: fit-content;
+      font-family: monospace;
+      font-size: 14px;
+      color: #e5e7eb;
+      margin: 20px auto;
     }
-
-    .blue{ color:#38bdf8; }
-    .yellow{ color:#fbbf24; }
-    .green{ color:#4ade80; }
-    .white{ color:#dddddd; }
-    .red{ color:#de4f4a; }
-
-    /* Mobile */
-    @media (max-width:900px){
-      .layout{ flex-direction:column; }
-      .sidebar{ width:auto; position:static; }
-      .main{ padding:20px; }
+    .micrologo {
+    display: block;
+      margin: 30px auto;
+      width: 100px;
     }
+    .blue { color: #38bdf8; }
+    .yellow { color: #fbbf24; }
+    .green { color: #4ade80; }
 
-    /* Sidebar image box */
-    .img-box{
-      width:100px;
-      height:120px;
-      border:3px solid #777;
-      background:#151a19;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:6px;
-      border-radius:8px;
-      overflow:hidden;
+    /* Mobile: stack sidebar on top */
+    @media (max-width: 900px) {
+      .layout { flex-direction: column; }
+      .sidebar { width: auto; position: static; }
+      .main { padding: 20px; }
     }
+	.img-box {
+	  width: 100px;
+	  height: 120px;
+	  border: 3px solid #777;
+	  background: #151a19;
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  justify-content: center;
+	  gap: 6px;
+	}
 
-    .img-box img{
-      width:120px;
-      height:120px;
-      object-fit:contain;
-    }
+	.img-box img {
+	  width: 120px;
+	  height: 120px;
+	  object-fit: contain;
+	}
 
-    .img-text{
-      font-size:12px;
-      color:#e6e6e6;
-      font-family:"IBM Plex Mono", monospace;
-      letter-spacing:1px;
-      text-align:center;
-      margin-top:6px;
+	.img-text {
+	  font-size: 12px;
+	  color: #e6e6e6;
+	  font-family: monospace;   /* retro look */
+	  letter-spacing: 1px;
+
+	}
+
+    .center-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
     }
   </style>
 </head>
-
-<body>
-  <div class="layout">
-
-    <!-- SIDEBAR (MATCH INDEX) -->
-    <aside class="sidebar">
-      <h2>Menu</h2>
-      <div class="img-box">
-		      <img src="../images/boar.jpeg" alt="Preview">
-		
-		   </div>
-		  <div class="img-text">Don't Worry! He's here too :)</div>
-      <a class="side-link" href="../">Home</a>
-      <a class="side-link" href="../apps/Apps">Apps</a>
-    </aside>
-
-    <!-- MAIN CONTENT -->
+    <body>
+       <div class="layout">
+    <div class="topbar">
+        <a>JanekTech.pl / </a>
+        <a class="button" href="../apps/appmenu">Apps</a>
+        <a class="button" href="../addons/addons">Addons</a>
+        <a class="button" href="../terms">Terms</a>
+        <a class="button", href="../">Home</a>
+        <a>jan.g 2026</a>
+    </div>
     <main class="main">
       <h1>Addons:</h1>
-      <img src="../logo2.gif" class="logo" alt="JanekTech logo">
+      <img src="../logo3.png" class="logo" alt="JanekTech logo">
 
       <h2>jeasydata:</h2>
 
@@ -303,6 +301,7 @@
   </div>
 </body>
 </html>
+
 
 
 
