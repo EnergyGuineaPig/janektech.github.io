@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JanekTech Website</title>
+
+  <style>
+    html {
+      background: #000000;
+      padding-top: 70px; /* adjust to match topbar height */
+    }
+
+    /* Page layout: sidebar + main */
+    body {
+      margin: 70;
+      color: #dddddd;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .layout {
+      max-width: 1200px;      /* overall width including sidebar */
+      margin: 40px auto;
+      padding: 0 20px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;           /* adjust to taste */
+      background: #151a19;
+      border: 3px solid #777;
+      box-shadow: 0 0 0 4px #555;
+      padding: 16px;
+      position: sticky;       /* stays visible while scrolling */
+      top: 20px;
+      border-radius: 8px;
+    }
+ 
+    .topbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;          /* full width */
+    background: #151a19;
+    border-bottom: 3px solid #777;
+    box-shadow: 0 0 0 5px #555;
+    padding: 16px;
+    z-index: 9999;
+    border-radius: 8px;
+    }
+
+
+    .sidebar h2 {
+      margin: 0 0 12px;
+      font-size: 16px;
+      text-transform: uppercase;
+      text-align: center;
+      
+    }
+
+    .side-link {
+      display: block;
+      background: #8e9493;
+      border: 2px solid #2D3635;
+      padding: 10px 16px;
+      margin: 8px 0;
+      color: #2D3635;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .side-link:hover {
+      background: #929e9c;
+    }
+
+    /* Main content box (your old body styles moved here) */
+    .main {
+        flex: 1;
+        background: #2D3635;
+        border: 7px solid #777;
+        box-shadow: 0 0 0 4px #555;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* vertical */
+        align-items: right;     /* horizontal */
+        padding: 40px;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 0;
+      text-transform: uppercase;
+    }
+
+    .nav {
+      text-align: center;
+      margin: 20px 0 30px;
+    }
+
+    a.button {
+      display: inline-block;
+      background-color: #8e9493;
+      border: 3px solid #2D3635;
+      padding: 8px 18px;
+      margin: 5px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      border-radius: 8px;
+    }
+
+    a.button:hover {
+      background-color: #a1aaa9;
+    }
+
+    /* Mobile: stack sidebar on top */
+    @media (max-width: 900px) {
+      .layout { flex-direction: column; }
+      .sidebar { width: auto; position: static; }
+      .main { padding: 20px; }
+    }
+	.img-box {
+	  width: 100px;
+	  height: 120px;
+	  border: 3px solid #777;
+	  background: #151a19;
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  justify-content: center;
+	  gap: 6px;
+	}
+
+	.img-box img {
+	  width: 120px;
+	  height: 120px;
+	  object-fit: contain;
+	}
+
+	.img-text {
+	  font-size: 12px;
+	  color: #e6e6e6;
+	  font-family: monospace;   /* retro look */
+	  letter-spacing: 1px;
+
+	}
+
+    .center-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="layout">
+    <div class="topbar">
+        <a>JanekTech.pl / </a>
+        <a class="button" href="./apps/apps">Apps</a>
+        <a class="button" href="./addons/addons">Addons</a>
+        <a class="button" href="./terms">Terms</a>
+        <a>jan.g 2026</a>
+    </div>
+
+    <main class="main">
+        <h1>Janektech.pl - Action</h1>
+       	<a>Choose an action:</a>
+       	<menu>
+       	  <li> Log in here:<a href="http://janektechphp.playit.plus/janektech/login.html" style="color:#68B0A2;">login</a></li>
+       	  <li> Register here:<a href="http://janektechphp.playit.plus/janektech/register.html" style="color:#68B0A2;">Register</a></li>
+       	  <li> Logout here:<a href="http://janektechphp.playit.plus/janektech/logout.php" style="color:#68B0A2;">Log out</a></li>
+       	</menu>
+      </div>
+
+  </div>
+</body>
+</html>
