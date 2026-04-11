@@ -263,7 +263,17 @@
 	.bolder { font-weight: bolder; }
   </style>
 </head>
+<script>
+  function toggleDownloadBar() {
+    document.getElementById("downloadBar").classList.toggle("show");
+  }
 
+  window.addEventListener("load", function () {
+    setTimeout(function () {
+      document.getElementById("downloadBar").classList.add("show");
+    }, 500);
+  });
+</script>
 <body>
 <div class="download-bar" id="downloadBar">
   <div class="download-tab" onclick="toggleDownloadBar()">JanStore</div>
