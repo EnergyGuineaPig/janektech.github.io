@@ -156,6 +156,54 @@
         align-items: center;     /* horizontal */
         padding: 40px;
     }
+    .warn {
+    width: 100%;
+    background: linear-gradient(135deg, #ffe45c, #f4c400);
+    border: 4px solid #9a7400;
+    box-shadow: 0 0 0 4px #5f4a00, 0 6px 20px rgba(0,0,0,0.35);
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 22px;
+    margin: 20px 0;
+
+    color: #2b2200;
+    font-family: 'Lucida Sans', sans-serif;
+}
+
+.warn-icon {
+    min-width: 70px;
+    height: 70px;
+    background: #ffcf00;
+    border: 4px solid #7a5b00;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 40px;
+    font-weight: bold;
+
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.4);
+}
+
+.warn-content h2 {
+    margin: 0 0 6px;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.warn-content p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #3a2f00;
+}
 
     h1 {
       text-align: center;
@@ -298,11 +346,12 @@
         <a>From now on all of the JanekTech apps will come with the JanekTech MK3(0.0.0.8) Installer</a>
         
         <h2>App info:</h2>
-        <a>Releasing Website Builder 3! MK3 setup creator is currently <font color="red">not available</font> for the public!</a>
+        <a>Releasing Website Builder 4.3 and Website builder direct site editor Editon! MK3 setup creator <font color="red">isn't going to be available</font> for the public but the <a class="bolder">Mk4 will be!</a></a>
+        
 		<h2>Site info:</h2>
 		<a>Log in and community pages finally released! It's a really big achievement for me!</a>
-		<a class="bolder">You can now create Sites!</a><a>Just log in and create a site for free also you can have only one site per person >>>></a>
-		<a href="http://janektechphp.playit.plus/janektech/create_site.php" style="color:#079C19">Create a site here</a>
+		<a class="bolder">You can now create Sites! </a><a>Just log in and create a site for free also you can have only one site per person >>>></a>
+		<a href="http://janektechphp.playit.plus/janektech/create_site_check.php" style="color:#079C19">Create a site here</a>
 
     </aside>
 
@@ -311,16 +360,26 @@
         <h1>Welcome to JanekTech.pl!</h1>
         <h2>Check out the new apps!</h2>
 		<h3>Recent:</h3>
-		<a>Ips you can trust: cs.janektech.pl, reg.janektech.pl, http://janektechphp.playit.plus/janektech</a>
+		<a>reg.janektech.pl, http://janektechphp.playit.plus/janektech</a>
 		<a>To report a bug you need to log in!</a>
-		<a>for webiste builder 3.4 you can download/upload styles on community pages!</a>
+		<a>for webiste builder 3.4 < you can download/upload styles on community pages!</a>
+	<div class="warn">
+    <div class="warn-icon">⚠</div>
 
+    <div class="warn-content">
+        <h2>Warning</h2>
+        <p>
+            Website Builder Direct site editor <a class="bolder">Requires</a> you to have and account at janektech and a site! Create <a href="http://janektechphp.playit.plus/janektech/register.html">here</a> !
+            Too fully use Wb4.3's automatic  <a class="bolder">style upload and creation requiers </a>you to have an account too! 
+        </p>
+    </div>
+</div>
+		
       </div>
-
+	
   </div>
 </body>
 </html>
-
 
 
 
