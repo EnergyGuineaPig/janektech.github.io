@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Website Builder Addons</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+    <img src="images/logo.png" alt="JanekTech">
+    JanekTech
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="addons.html">WB Addons</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Website Builder Addons</h1>
+  <p>Browse addons uploaded to the JanekTech Website Builder addon server.</p>
+</section>
+
+<div class="apps-grid" id="addonsGrid">
+  <p>Loading addons...</p>
+</div>
+
+<script>
+const CATALOG_URL = "http://janektechphp.playit.plus/wb/catalog.json";
+const SERVER_ROOT = "http://janektechphp.playit.plus/wb/";
+
+async function loadAddons() {
+  const grid = document.getElementById("addonsGrid");
+
+  try {
+    const res = await fetch(CATALOG_URL);
+    const catalog = await res.json();
+
+    grid.innerHTML = "";
+
+    if (Object.keys(catalog).length === 0) {
+      grid.innerHTML = "<p>No addons found.</p>";
+      return;
+    }
+
+    for (const [name, addon] of Object.entries(catalog)) {
+      const card = document.createElement("div");
+      card.className = "app-card";
+
+      const icon = addon.icon
+        ? SERVER_ROOT + "addons/icons/" + addon.icon
+        : "images/logo.png";
+
+      const file = SERVER_ROOT + "addons/files/" + addon.file;
+
+      card.innerHTML = `
+        <img src="${icon}" alt="${name}">
+        <h2>${escapeHtml(addon.title || name)}</h2>
+        <p>${escapeHtml(addon.description || "No description.")}</p>
+        <p><b>Install:</b> <code>wb install ${escapeHtml(name)}</code></p>
+        <a class="download-btn" href="${file}">Download</a>
+      `;
+
+      grid.appendChild(card);
+    }
+
+  } catch (err) {
+    grid.innerHTML = "<p>Could not load addon catalog.</p>";
+    console.error(err);
+  }
+}
+
+function escapeHtml(text) {
+  return String(text)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+loadAddons();
+</script>
+
+</body>
+</html>
