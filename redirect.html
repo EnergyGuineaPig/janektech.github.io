@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting... | JanekTech</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <div class="logo">JT</div>
+    <h1 id="title">Leaving JanekTech</h1>
+    <p id="message">You are being redirected to another page.</p>
+
+    <div class="destination">
+      <small>DESTINATION</small>
+      <strong id="destination">Loading...</strong>
+    </div>
+
+    <div class="progress"><div id="bar"></div></div>
+    <p class="countdown">Redirecting in <b id="seconds">3</b> seconds...</p>
+
+    <div class="buttons">
+      <a id="continue" class="primary" href="#">Continue now</a>
+      <a class="secondary" href="./">Cancel</a>
+    </div>
+
+    <p id="error" class="error" hidden></p>
+  </main>
+
+  <footer>JanekTech © 2026</footer>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const rawUrl = params.get("url");
+    const customMessage = params.get("message");
+    const customTitle = params.get("title");
+
+    const title = document.getElementById("title");
+    const message = document.getElementById("message");
+    const destination = document.getElementById("destination");
+    const seconds = document.getElementById("seconds");
+    const continueButton = document.getElementById("continue");
+    const bar = document.getElementById("bar");
+    const error = document.getElementById("error");
+
+    function validUrl(value) {
+      try {
+        const url = new URL(value);
+        return ["http:", "https:"].includes(url.protocol) ? url : null;
+      } catch {
+        return null;
+      }
+    }
+
+    const redirectUrl = validUrl(rawUrl);
+
+    if (!redirectUrl) {
+      title.textContent = "Redirect unavailable";
+      message.textContent = "The redirect link is missing or invalid.";
+      destination.textContent = "No valid destination";
+      continueButton.hidden = true;
+      bar.style.animation = "none";
+      error.hidden = false;
+      error.textContent = "Use: ?url=https%3A%2F%2Fexample.com";
+    } else {
+      if (customTitle) title.textContent = customTitle;
+      if (customMessage) message.textContent = customMessage;
+
+      destination.textContent = redirectUrl.hostname;
+      destination.title = redirectUrl.href;
+      continueButton.href = redirectUrl.href;
+
+      let left = 3;
+      const timer = setInterval(() => {
+        left -= 1;
+        seconds.textContent = left;
+
+        if (left <= 0) {
+          clearInterval(timer);
+          location.replace(redirectUrl.href);
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
