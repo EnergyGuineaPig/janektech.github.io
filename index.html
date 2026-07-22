@@ -1,374 +1,140 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	
-  <title>JanekTech Website</title>
-	<meta name="description" content="Janektech.pl offers apps(website builder, other) site creation and a community page">
-	<meta name="keywords" content="janek, janektech, weather, weatherapp, website builder, website builder 3 , php, tutorials, apps, html, users , poland, easy to use, easy web, www, python , addons, kid, skeech , login , site creation, easy sites, hosting, community">
-	<meta name="author" content="Jan Golak">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-	  /* Download slide bar */
-	.download-bar {
-	  position: fixed;
-	  top: 18px;
-	  right: -340px;              /* hidden off screen */
-	  width: 300px;
-	  background: linear-gradient(135deg, #0f8f2f, #19b84a);
-	  color: white;
-	  border: 3px solid #0b5f20;
-	  box-shadow: 0 0 0 4px #0a4418, 0 10px 30px rgba(0,0,0,0.35);
-	  border-radius: 14px 0 0 14px;
-	  padding: 14px 16px 14px 20px;
-	  z-index: 10000;
-	  transition: right 0.45s ease;
-	}
-	
-	.download-bar.show {
-	  right: 0;
-	}
-	
-	.download-bar h3 {
-	  margin: 0 0 6px;
-	  font-size: 16px;
-	}
-	
-	.download-bar p {
-	  margin: 0 0 12px;
-	  font-size: 13px;
-	  line-height: 1.35;
-	  color: #ecfff0;
-	}
-	
-	.download-btn {
-	  display: inline-block;
-	  background: #ffffff;
-	  color: #0f7d2b;
-	  text-decoration: none;
-	  font-weight: bold;
-	  padding: 9px 16px;
-	  border-radius: 10px;
-	  border: 2px solid #dfffe8;
-	}
-	
-	.download-btn:hover {
-	  background: #eaffef;
-	}
-	
-	.download-tab {
-	  position: absolute;
-	  left: -58px;
-	  top: 50%;
-	  transform: translateY(-50%) rotate(-90deg);
-	  transform-origin: center;
-	  background: #19b84a;
-	  color: white;
-	  border: 3px solid #0b5f20;
-	  border-bottom: none;
-	  padding: 8px 14px;
-	  font-weight: bold;
-	  border-radius: 10px 10px 0 0;
-	  cursor: pointer;
-	  letter-spacing: 0.5px;
-	}
-	html {
-	      background: #000000;
-	      padding-top: 70px; /* adjust to match topbar height */
-	    }
-
-    /* Page layout: sidebar + main */
-    body {
-      margin: 70;
-      color: #dddddd;
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    }
-
-    .layout {
-      max-width: 1200px;      /* overall width including sidebar */
-      margin: 40px auto;
-      padding: 0 20px;
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-    }
-
-    /* Sidebar */
-    .sidebar {
-      width: 220px;           /* adjust to taste */
-      background: #151a19;
-      border: 3px solid #777;
-      box-shadow: 0 0 0 4px #555;
-      padding: 16px;
-      position: sticky;       /* stays visible while scrolling */
-      top: 20px;
-      border-radius: 8px;
-    }
- 
-    .topbar{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;          /* full width */
-    background: #151a19;
-    border-bottom: 3px solid #777;
-    box-shadow: 0 0 0 5px #555;
-    padding: 16px;
-    z-index: 9999;
-    border-radius: 8px;
-    }
-
-
-    .sidebar h2 {
-      margin: 0 0 12px;
-      font-size: 16px;
-      text-transform: uppercase;
-      text-align: center;
-      
-    }
-
-    .side-link {
-      display: block;
-      background: #8e9493;
-      border: 2px solid #2D3635;
-      padding: 10px 16px;
-      margin: 8px 0;
-      color: #2D3635;
-      text-decoration: none;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .side-link:hover {
-      background: #929e9c;
-    }
-
-    /* Main content box (your old body styles moved here) */
-    .main {
-        flex: 1;
-        background: #2D3635;
-        border: 7px solid #777;
-        box-shadow: 0 0 0 4px #555;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center; /* vertical */
-        align-items: center;     /* horizontal */
-        padding: 40px;
-    }
-    .warn {
-    width: 100%;
-    background: linear-gradient(135deg, #ffe45c, #f4c400);
-    border: 4px solid #9a7400;
-    box-shadow: 0 0 0 4px #5f4a00, 0 6px 20px rgba(0,0,0,0.35);
-    border-radius: 14px;
-
-    display: flex;
-    align-items: center;
-    gap: 18px;
-
-    padding: 22px;
-    margin: 20px 0;
-
-    color: #2b2200;
-    font-family: 'Lucida Sans', sans-serif;
-}
-
-.warn-icon {
-    min-width: 70px;
-    height: 70px;
-    background: #ffcf00;
-    border: 4px solid #7a5b00;
-    border-radius: 12px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 40px;
-    font-weight: bold;
-
-    box-shadow: inset 0 0 10px rgba(255,255,255,0.4);
-}
-
-.warn-content h2 {
-    margin: 0 0 6px;
-    font-size: 24px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.warn-content p {
-    margin: 0;
-    font-size: 15px;
-    line-height: 1.5;
-    color: #3a2f00;
-}
-
-    h1 {
-      text-align: center;
-      margin-top: 0;
-      text-transform: uppercase;
-    }
-
-    .nav {
-      text-align: center;
-      margin: 20px 0 30px;
-    }
-	a.loginbutton {
-      display: inline-block;
-      background-color: #8e9493;
-      border: 3px solid #2D3635;
-      padding: 8px 18px;
-      margin: 5px;
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: bold;
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-      border-radius: 8px;
-    }
-
-    a.button {
-      display: inline-block;
-      background-color: #8e9493;
-      border: 3px solid #2D3635;
-      padding: 8px 18px;
-      margin: 5px;
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: bold;
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-      border-radius: 8px;
-    }
-
-    a.button:hover {
-      background-color: #a1aaa9;
-    }
-
-    .logo {
-      display: block;
-      margin: 30px auto;
-      width: 450px;
-    }
-
-    .code-box {
-      background: #0b1220;
-      border: 2px solid #1e293b;
-      padding: 16px;
-      width: fit-content;
-      font-family: monospace;
-      font-size: 14px;
-      color: #e5e7eb;
-      margin: 20px auto;
-    }
-    .micrologo {
-    display: block;
-      margin: 30px auto;
-      width: 100px;
-    }
-    .blue { color: #38bdf8; }
-    .yellow { color: #fbbf24; }
-    .green { color: #4ade80; }
-
-    /* Mobile: stack sidebar on top */
-    @media (max-width: 900px) {
-      .layout { flex-direction: column; }
-      .sidebar { width: auto; position: static; }
-      .main { padding: 20px; }
-    }
-	.img-box {
-	  width: 100px;
-	  height: 120px;
-	  border: 3px solid #777;
-	  background: #151a19;
-	  display: flex;
-	  flex-direction: column;
-	  align-items: center;
-	  justify-content: center;
-	  gap: 6px;
-	}
-
-	.img-box img {
-	  width: 120px;
-	  height: 120px;
-	  object-fit: contain;
-	}
-
-	.img-text {
-	  font-size: 12px;
-	  color: #e6e6e6;
-	  font-family: monospace;   /* retro look */
-	  letter-spacing: 1px;
-
-	}
-
-    .center-text {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-	.bolder { font-weight: bolder; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JanekTech.pl offers apps, website creation tools and a community page.">
+    <meta name="keywords" content="janektech, apps, website builder, python, addons, hosting, community">
+    <meta name="author" content="Jan Golak">
+    <title>JanekTech</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <div class="background-layer" aria-hidden="true"></div>
+    <div class="background-overlay" aria-hidden="true"></div>
 
-  <div class="layout">
-    <div class="topbar">
-        <a>JanekTech.pl / </a>
-        <a class="button" href="./apps/appmenu">Apps</a>
-        <a class="button" href="./addons/addons">Addons</a>
-		<a class="button" href="http://janektechphp.playit.plus/janektech/community.php">Community</a>
-        <a class="button" href="./terms">Terms</a>
-		<a class="button" href="loginmenu.html">Log in/ Register</a>
-        <a>jan.g 2026</a>
-    </div>
-    <aside class="sidebar">
-      <h2>Recent information</h2>
-        <a>This is a new main site</a>
-        <h2>Installers:</h2>
-        <a>From now on all of the JanekTech apps will come with the JanekTech MK3(0.0.0.8) Installer</a>
-        
-        <h2>App info:</h2>
-        <a>Releasing Website Builder 4.3 and Website builder direct site editor Editon! MK3 setup creator <font color="red">isn't going to be available</font> for the public but the <a class="bolder">Mk4 will be!</a></a>
-        
-		<h2>Site info:</h2>
-		<a>Log in and community pages finally released! It's a really big achievement for me!</a>
-		<a class="bolder">You can now create Sites! </a><a>Just log in and create a site for free also you can have only one site per person >>>></a>
-		<a href="http://janektechphp.playit.plus/janektech/create_site_check.php" style="color:#079C19">Create a site here</a>
+    <header class="navbar">
+        <a class="brand" href="./">
+            <img src="images/logo.png" alt="JanekTech logo">
+            <span>JanekTech</span>
+        </a>
 
-    </aside>
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="./apps/appmenu.html">Apps</a>
+            <a href="http://janektechphp.playit.plus/janektech/community.php">Community</a>
+            <a href="./terms">Terms</a>
+            <a class="nav-login" href="loginmenu.html">Log in / Register</a>
+        </nav>
+    </header>
 
-    <main class="main">
-      <img src="logo3.png" class="logo" alt="JanekTech logo">
-        <h1>Welcome to JanekTech.pl!</h1>
-        <h2>Check out the new apps!</h2>
-		<h3>Recent:</h3>
-		<a>reg.janektech.pl, http://janektechphp.playit.plus/janektech</a>
-		<a>To report a bug you need to log in!</a>
-		<a>for webiste builder 3.4 < you can download/upload styles on community pages!</a>
-	<div class="warn">
-    <div class="warn-icon">⚠</div>
+    <main class="page-shell">
+        <section class="hero glass-card">
+            <div class="hero-text">
+                <span class="eyebrow">BUILD • CREATE • SHARE</span>
+                <h1>Welcome to JanekTech</h1>
+                <p>
+                    Apps, website tools, addons and community projects made to keep creating simple.
+                </p>
 
-    <div class="warn-content">
-        <h2>Warning</h2>
-        <p>
-            Website Builder Direct site editor <a class="bolder">Requires</a> you to have an account at janektech and a site! Create <a href="http://janektechphp.playit.plus/janektech/register.html">here</a> !
-            Too fully use Wb4.3's automatic  <a class="bolder">style upload and creation requiers </a>you to have an account too! 
-        </p>
-    </div>
-</div>
-		
-      </div>
-	
-  </div>
+                <div class="hero-actions">
+                    <a class="primary-btn" href="./apps/appmenu.html">Explore apps</a>
+                    <a class="secondary-btn" href="http://janektechphp.playit.plus/janektech/create_site_check.php">Create a site</a>
+                </div>
+            </div>
+
+
+        </section>
+
+        <section class="content-grid">
+            <aside class="news-panel glass-card">
+                <div class="section-heading">
+                    <span class="section-kicker">Updates</span>
+                    <h2>Recent information</h2>
+                </div>
+
+                <article class="news-item">
+                    <span class="news-label">Website</span>
+                    <h3>A brand-new main site</h3>
+                    <p>The JanekTech homepage has been redesigned with a cleaner, lighter interface.</p>
+                </article>
+
+                <article class="news-item">
+                    <span class="news-label">Community</span>
+                    <h3>Website builder Addons</h3>
+                    <p>Website builder now accepts addons created with python</p>
+                    <a class="text-link" href="apps/wb/addons">Learn more</a>
+                </article>
+
+                <article class="news-item">
+                    <span class="news-label">Apps</span>
+                    <h3>New releases</h3>
+                    <p>Website Builder 5.2 is being released!</p>
+                </article>
+
+                <article class="news-item">
+                    <span class="news-label">Community</span>
+                    <h3>Create your own site</h3>
+                    <p>Log in and create one free site for your account.</p>
+                    <a class="text-link" href="http://janektechphp.playit.plus/janektech/create_site_check.php">Create a site →</a>
+                </article>
+            </aside>
+
+            <section class="main-content glass-card">
+                <div class="section-heading center-heading">
+                    <span class="section-kicker">What’s new</span>
+                    <h2>Check out the latest projects</h2>
+                    
+                </div>
+
+                <div class="feature-cards">
+                    <article class="feature-card">
+                        <div class="feature-icon">WB</div>
+                        <h3>Website Builder 5.2</h3>
+                        <p>Create and edit websites with automatic style creation, emmet, autofill and more!.</p>
+                        <a href="./apps/appmenu.html">Download</a>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon">Vilent</div>
+                        <h3>Vilent Beta</h3>
+                        <p>More secure, better encripted vilent.</p>
+                        <a href="./learnmore/vilent-beta.html">Learn more</a>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon">+</div>
+                        <h3>Addons & Community</h3>
+                        <p>Discover addons, upload styles and share your work with other users.</p>
+                        <a href="./addons/addons">Browse addons</a>
+                    </article>
+                </div>
+
+                <div class="warning-card">
+                    <div class="warning-icon">!</div>
+                    <div>
+                        <h3>Account required</h3>
+                        <p>
+                            Website Builder Direct requires a JanekTech account and an existing site.
+                            Website Builder 4.3< also requires an account for automatic style upload and creation.
+                        </p>
+                        <a href="http://janektechphp.playit.plus/janektech/register.html">Create an account</a>
+                    </div>
+                </div>
+
+                <div class="status-row">
+                    <div>
+                        <span class="status-dot"></span>
+                        <strong>Recent services</strong>
+                    </div>
+                    <p>reg.janektech.pl &nbsp;•&nbsp; janektechphp.playit.plus/janektech</p>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <span>JanekTech.pl | Made in WebsiteBuilder 5</span>
+        <span>jan.g © 2026</span>
+    </footer>
 </body>
 </html>
-
-
-
-
-
-
-
