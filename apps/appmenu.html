@@ -1,470 +1,228 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>JanekTech Website</title>
-
-  <style>
-    html {
-      background: #000000;
-      padding-top: 70px; /* adjust to match topbar height */
-    }
-
-    /* Page layout: sidebar + main */
-    body {
-      margin: 70;
-      color: #dddddd;
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    }
-
-    .layout {
-      max-width: 1200px;      /* overall width including sidebar */
-      margin: 40px auto;
-      padding: 0 20px;
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-    }
-
-    /* Sidebar */
-    .sidebar {
-      width: 220px;           /* adjust to taste */
-      background: #151a19;
-      border: 3px solid #777;
-      box-shadow: 0 0 0 4px #555;
-      padding: 16px;
-      position: sticky;       /* stays visible while scrolling */
-      top: 20px;
-      border-radius: 8px;
-    }
- 
-    .topbar{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;          /* full width */
-    background: #151a19;
-    border-bottom: 3px solid #777;
-    box-shadow: 0 0 0 5px #555;
-    padding: 16px;
-    z-index: 9999;
-    border-radius: 8px;
-    }
-
-
-    .sidebar h2 {
-      margin: 0 0 12px;
-      font-size: 16px;
-      text-transform: uppercase;
-      text-align: center;
-      
-    }
-
-    .side-link {
-      display: block;
-      background: #8e9493;
-      border: 2px solid #2D3635;
-      padding: 10px 16px;
-      margin: 8px 0;
-      color: #2D3635;
-      text-decoration: none;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .side-link:hover {
-      background: #929e9c;
-    }
-
-    /* Main content box (your old body styles moved here) */
-    .main {
-        flex: 1;
-        background: #2D3635;
-        border: 7px solid #777;
-        box-shadow: 0 0 0 4px #555;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center; /* vertical */
-        align-items: center;     /* horizontal */
-        padding: 40px;
-    }
-
-    h1 {
-      text-align: center;
-      margin-top: 0;
-      text-transform: uppercase;
-    }
-
-    .nav {
-      text-align: center;
-      margin: 20px 0 30px;
-    }
-
-    a.button {
-      display: inline-block;
-      background-color: #8e9493;
-      border: 3px solid #2D3635;
-      padding: 8px 18px;
-      margin: 5px;
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: bold;
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-      border-radius: 8px;
-    }
-
-    a.button:hover {
-      background-color: #a1aaa9;
-    }
-
-    .logo {
-      display: block;
-      margin: 30px auto;
-      width: 450px;
-    }
-
-    .code-box {
-      background: #0b1220;
-      border: 2px solid #1e293b;
-      padding: 16px;
-      width: fit-content;
-      font-family: monospace;
-      font-size: 14px;
-      color: #e5e7eb;
-      margin: 20px auto;
-    }
-    .micrologo {
-    display: block;
-      margin: 30px auto;
-      width: 100px;
-    }
-    .blue { color: #38bdf8; }
-    .yellow { color: #fbbf24; }
-    .green { color: #4ade80; }
-
-    /* Mobile: stack sidebar on top */
-    @media (max-width: 900px) {
-      .layout { flex-direction: column; }
-      .sidebar { width: auto; position: static; }
-      .main { padding: 20px; }
-    }
-	.img-box {
-	  width: 100px;
-	  height: 120px;
-	  border: 3px solid #777;
-	  background: #151a19;
-	  display: flex;
-	  flex-direction: column;
-	  align-items: center;
-	  justify-content: center;
-	  gap: 6px;
-	}
-
-	.img-box img {
-	  width: 120px;
-	  height: 120px;
-	  object-fit: contain;
-	}
-
-	.img-text {
-	  font-size: 12px;
-	  color: #e6e6e6;
-	  font-family: monospace;   /* retro look */
-	  letter-spacing: 1px;
-
-	}
-
-    .center-text {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-    .side-container {
-        width: 540px;
-        background: #151a19;
-        border: 1px solid #777;
-        box-shadow: 0 0 0 4px #555;
-        padding: 16px;
-        color: #dddddd;
-        margin-right: auto;
-        margin-left: 180px;
-        margin-top: 10px;
-    }
-    .nice-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  background: #151a19;
-  border: 3px solid #777;
-  box-shadow: 0 0 0 4px #555;
-  color: #dddddd;
-  font-family: "Courier New", monospace;
-  font-size: 14px;
-}
-
-    /* Header */
-    .nice-table thead {
-    background: #2D3635;
-    }
-
-    .nice-table th {
-    padding: 12px;
-    border-bottom: 3px solid #777;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    }
-
-    /* Body cells */
-    .nice-table td {
-    padding: 10px 5px;
-    border-bottom: 1px solid #555;
-
-    }
-
-    /* Row hover */
-    .nice-table tbody tr:hover {
-    background: #1e2423;
-    }
-
-    /* Zebra striping */
-    .nice-table tbody tr:nth-child(even) {
-    background: #181e1d;
-    }
-    .max-400 {
-        max-width: 100px;
-        max-height: 100px;
-    }
-    .nice-table th,
-    .nice-table td {
-        align-items: center;
-    }
-
-    .nice-table td:nth-child(4) {
-        text-align: left;
-    }
-
-    .nice-table img {
-    max-width: 120px;
-    max-height: 120px;
-    display: block;
-    }
-
-    .nice-table .button {
-    padding: 6px 14px;
-    font-size: 13px;
-    }
-
-    .app-table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-  background: #151a19;
-  border: 3px solid #777;
-  box-shadow: 0 0 0 4px #555;
-  color: #dddddd;
-  font-family: "Courier New", monospace;
-  font-size: 14px;
-}
-
-/* Header */
-.app-table thead {
-  background: #2D3635;
-}
-
-.app-table th {
-  padding: 12px;
-  text-align: center;
-  border-bottom: 3px solid #777;
-  text-transform: uppercase;
-}
-
-/* Cells */
-.app-table td {
-  padding: 12px;
-  text-align: center;
-  vertical-align: middle;
-  border-bottom: 1px solid #555;
-}
-
-    /* Column widths */
-    .app-table th:nth-child(1),
-    .app-table td:nth-child(1) { width: 140px; }
-
-    .app-table th:nth-child(3),
-    .app-table td:nth-child(3) { width: 120px; }
-
-    .app-table th:nth-child(4),
-    .app-table td:nth-child(4) { width: 140px; }
-
-    /* Image */
-    .app-img {
-    max-width: 120px;
-    max-height: 120px;
-    display: block;
-    margin: 0 auto;
-    }
-
-    /* Button inside table */
-    .app-table .button {
-    padding: 6px 14px;
-    font-size: 13px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse and download JanekTech applications.">
+    <title>Apps | JanekTech</title>
+    <link rel="stylesheet" href="appmenu.css">
 </head>
-
 <body>
-  <div class="layout">
-    <div class="topbar">
-        <a>JanekTech.pl / </a>
-        <a class="button" href="../apps/appmenu">Apps</a>
-        <a class="button" href="../addons/addons">Addons</a>
-        <a class="button" href="../terms">Terms</a>
-		<a class="button" href="../">Home</a>
-        <a>jan.g 2026</a>
-    </div>
+    <div class="background-layer" aria-hidden="true"></div>
+    <div class="background-overlay" aria-hidden="true"></div>
 
-    <main class="main">
-      <img src="../logo3.png" class="logo" alt="JanekTech logo">
-        <h1>Apps list:</h1>
-        <a>By pressing "download" you agree to the terms of usage at janektech.pl/terms</a>
-        
-        <div class="side-container">
-            <h1>Newest App:</h1>
-            <table class="nice-table">
-                <thead>
-                    <tr>
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>Version</th>
-                    <th>link</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <td><img src="appsimages/icon4.3.png" class="max-400"></td>
-                    <td>Website builder</td>
-                    <td>5.0</td>
-                    <td><a class="button" href="https://www.mediafire.com/file/f459tj191eoo19d/wb5setup.exe/file">Download</a></td>
-                    </tr>
-					<a class="button" href="https://janektech.pl/docs/wb/addonengine.pdf">Check out wb addon tutorial!</a>
-					
-					
-                </tbody>
-                </table>
+    <header class="navbar">
+        <a class="brand" href="../index.html">
+            <img src="../images/logo.png" alt="JanekTech logo">
+            <span>JanekTech</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="../index.html">Back</a>
+            <a href="../redirect.html?url=http://janektechphp.playit.plus/janektech/community.php">Community</a>
+            <a href="../terms.html">Terms</a>
+        </nav>
+    </header>
+
+    <main class="page-shell">
+        <section class="apps-hero glass-card">
+            <div>
+                <span class="eyebrow">JANEKTECH SOFTWARE</span>
+                <h1>App menu</h1>
+                <p>Browse JanekTech apps, utilities, server tools and website creation software.</p>
+            </div>
+
+            <div class="search-box">
+                <label for="app-search">Search apps</label>
+                <div class="search-control">
+                    <span aria-hidden="true">⌕</span>
+                    <input id="app-search" type="search" placeholder="Type an app name..." autocomplete="off">
+                </div>
+            </div>
+        </section>
+
+        <section class="toolbar glass-card">
+            <div class="filter-buttons" aria-label="App categories">
+                <button class="filter active" data-filter="all">All</button>
+                <button class="filter" data-filter="website">Website tools</button>
+                <button class="filter" data-filter="server">Server tools</button>
+                <button class="filter" data-filter="utility">Utilities</button>
+                <button class="filter" data-filter="legacy">Legacy</button>
+            </div>
+            <p><strong id="visible-count">13</strong> apps shown</p>
+        </section>
+
+        <section class="apps-grid" id="apps-grid">
+            <article class="app-card glass-card" data-category="website" data-name="Website Builder 4.3">
+                <div class="app-logo-wrap"><img src="../images/apps/website-builder.png" alt="Website Builder logo"></div>
+                <div class="app-content">
+                    <span class="app-category">Website tool</span>
+                    <h2>Website Builder 5.2</h2>
+                    <p>Create websites, addons and downloadable styles.</p>
+                    <div class="app-meta"><span>Current</span><span>Windows</span><span>Account Optional</span></div>
+                    <div class="card-actions"><a class="primary-btn" href="wb/app.html">View app</a>
+            </article>
+
+            <article class="app-card glass-card" data-category="website" data-name="Website Builder Direct">
+                <div class="app-logo-wrap"><img src="../images/apps/wbdirect.png" alt="Website Builder Direct logo"></div>
+                <div class="app-content">
+                    <span class="app-category">Website tool</span>
+                    <h2>WB Direct</h2>
+                    <p>Edit a JanekTech-hosted website directly from your desktop.</p>
+                    <div class="app-meta"><span>Current</span><span>Account required</span></div>
+                    <div class="card-actions"><a class="primary-btn" href="wbd/app.html">View app</a>
+                </div>
+            </article>
+
+
+            <article class="app-card glass-card" data-category="server" data-name="MCC3">
+                <div class="app-logo-wrap"><img src="../images/apps/mcc3.png" alt="MCC3 logo"></div>
+                <div class="app-content">
+                    <span class="app-category">Server tool</span>
+                    <h2>MCC³</h2>
+                    <p>A compact Minecraft server-control application with a simple interface.</p>
+                    <div class="app-meta"><span>Legacy</span><span>Windows</span></div>
+                    <div class="card-actions"><a class="primary-btn" href="#">View app</a>
+                </div>
+            </article>
+
+            <article class="app-card glass-card" data-category="utility" data-name="File Transfer JanekTech FTJ 2.0">
+                <div class="app-logo-wrap"><img src="../images/apps/fileTransfer.png" alt="File Transfer JanekTech logo"></div>
+                <div class="app-content">
+                    <span class="app-category">Utility</span>
+                    <h2>FTJ 1.0</h2>
+                    <p>Transfer files between computers with your own JanekTech file server.</p>
+                    <div class="app-meta"><span>2.0</span><span>Network</span></div>
+                    <div class="card-actions"><a class="primary-btn" href="#">View app</a>
+                </div>
+            </article>
+
+            <article class="app-card glass-card" data-category="utility" data-name="Vilent">
+                <div class="app-logo-wrap dark-logo"><img src="../images/apps/vilentlogo.png" alt="Vilent logo"></div>
+                <div class="app-content">
+                    <span class="app-category">Communication</span>
+                    <h2>Vilent</h2>
+                    <p>A JanekTech communication project with a distinctive purple interface.</p>
+                    <div class="app-meta"><span>Project</span><span>Windows</span></div>
+                    <div class="card-actions"><a class="primary-btn" href="#">View app</a>
+                </div>
+            </article>
+
+            <article class="app-card glass-card" data-category="legacy" data-name="Mini Vilent">
+                <div class="app-logo-wrap dark-logo"><img src="../images/apps/minilogo.png" alt="Mini Vilent logo"></div>
+                <div class="app-content">
+                    <span class="app-category">Legacy</span>
+                    <h2>Mini Vilent</h2>
+                    <p>A lightweight, pixel-styled version of the Vilent application.</p>
+                    <div class="app-meta"><span>Mini</span><span>Legacy</span></div>
+                    <div class="card-actions"><a class="primary-btn" href="#">View app</a>
+                </div>
+            </article>
+
+            <article class="app-card glass-card" data-category="utility" data-name="File Hider 1.0">
+                <div class="app-logo-wrap"><img src="../images/apps/filehider.png" alt="File Hider logo"></div>
+                <div class="app-content">
+                    <span class="app-category">Utility</span>
+                    <h2>File Hider 1.0</h2>
+                    <p>Hide selected files with a straightforward desktop utility.</p>
+                    <div class="app-meta"><span>1.0</span><span>Windows</span></div>
+                    <div class="card-actions"><a class="primary-btn" href="#">View app</a>
+                </div>
+            </article>
+
+            <article class="app-card glass-card" data-category="utility" data-name="Weather">
+                <div class="app-logo-wrap dark-logo"><img src="../images/apps/weather.png" alt="Weather app logo"></div>
+                <div class="app-content">
+                    <span class="app-category">Utility</span>
+                    <h2>Weather</h2>
+                    <p>A compact weather widget designed for quick access from the desktop.</p>
+                    <div class="app-meta"><span>Widget</span><span>Windows</span></div>
+                    <div class="card-actions"><a class="primary-btn" href="#">View app</a>
+                </div>
+            </article>
+
+            <article class="app-card glass-card" data-category="utility" data-name="Jome">
+                <div class="app-logo-wrap dark-logo"><img src="../images/apps/jome2.png" alt="jome"></div>
+                <div class="app-content">
+                    <span class="app-category">Utility</span>
+                    <h2>Jome</h2>
+                    <p>A simple web browser.</p>
+                    <div class="app-meta"><span>Browser</span><span>Windows</span></div>
+                    <div class="card-actions"><a class="primary-btn" href="#">View app</a>
+                </div>
+            </article>
+
+            <article class="app-card glass-card" data-category="utility" data-name="JDEC">
+                <div class="app-logo-wrap transparent-logo"><img src="../images/apps/jdec.png" alt="JDEC logo"></div>
+                <div class="app-content">
+                    <span class="app-category">Utility</span>
+                    <h2>Janek's decoder</h2>
+                    <p>A .txt encriptor</p>
+                    <div class="app-meta"><span>Tool</span><span>Windows</span></div>
+                    <div class="card-actions"><a class="primary-btn" href="#">View app</a>
+            </article>
+            <article class="app-card glass-card" data-category="utility" data-name="JDEL">
+                <div class="app-logo-wrap transparent-logo"><img src="../images/apps/jdel.png" alt="JDEL logo"></div>
+                <div class="app-content">
+                    <span class="app-category">Utility</span>
+                    <h2>Janek's Deleter</h2>
+                    <p>A secure file-deletion utility for removing selected files.</p>
+                    <div class="app-meta"><span>Tool</span><span>Windows</span></div>
+                    <div class="card-actions"><a class="primary-btn" href="#">View app</a>
+                </div>
+            </article>
+
+            
+        </section>
+
+        <div class="empty-state glass-card" id="empty-state" hidden>
+            <div>⌕</div>
+            <h2>No apps found</h2>
+            <p>Try another search term or category.</p>
         </div>
-        <h2>Rest:</h2>
-            <table class="app-table">
-            <thead>
-                <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Version</th>
-                <th>Mediafire</th>
-                <th>Server 1</th>
-                </tr>
-            </thead>
-            <tbody>
-				<tr>
-                <td><img src="appsimages/icon4.3.png" class="app-img"></td>
-                <td>Website Builder</td>
-                <td>5.0</td>
-                <td><a class="button" href="https://www.mediafire.com/file/f459tj191eoo19d/wb5setup.exe/file">Download</a></td>
-                <td><a class="button" href="http://janektechphp.playit.plus/janektech/fileuploads/happydownload.php?file=1e82d4199eeec71f%2Fwb5setup.exe">Download</a></td>
-                </tr>
-				
-				<tr>
-                <td><img src="appsimages/mcc3icon.png" class="app-img"></td>
-                <td>EasyServerCreator MCC 3</td>
-                <td>3.0</td>
-                <td><a class="button" href="https://www.mediafire.com/file/cffmjkbjuodgk9u/mcc%2528bug_fixes%2529.exe/file">Download</a></td>
-                <td><font color="red">Not Uploaded!</font></td>
-                </tr>
-				<tr>
-                <td><img src="appsimages/fileTransfer.png" class="app-img"></td>
-                <td>File Transfer Janektech</td>
-                <td>1.0</td>
-                <td><a class="button" href="https://www.mediafire.com/file/qtj307ow80g2a2z/ftjsetup.exe/file">Download</a></td>
-                <td><font color="red">Not Uploaded!</font></td>
-                </tr>
-				
-                
-                <td><img src="appsimages/wbdirect.png" class="app-img"></td>
-                <td>Website Builder Direct site editor Edition</td>
-                <td>4.1</td>
-                <td><a class="button" href="https://www.mediafire.com/file/4zqbn5t57wtd9r1/wbdirect.exe/file">Download</a></td>
-                <td><a class="button" href="http://janektechphp.playit.plus/janektech/fileuploads/happydownload.php?file=fea8277092d16ba4%2Fwbdirect.exe">Download</a></td>
-                </tr>                
-				<tr>
-                <td><img src="appsimages/mcc.png" class="app-img"></td>
-                <td>EasyServerCreator(MCC) 2</td>
-                <td>2.0</td>
-                <td><a class="button" href="https://www.mediafire.com/file/wv5y8q1vatqcojm/mcc2.exe/file">Download</a></td>
-                <td><a class="button" href="http://janektechphp.playit.plus/janektech/fileuploads/happydownload.php?file=c37751c9ec1710c4%2Fmcc2.exe">Download</a></td>
-                </tr>
-				<tr>
-                <td><img src="appsimages/jdel2.png" class="app-img"></td>
-                <td>Janek's Deleter</td>
-                <td>3.0</td>
-                <td><a class="button" href="https://www.mediafire.com/file/rtyx8ybxvp0obq6/Jdelete2.exe/file">Download</a></td>
-                <td><font color="red">Not Uploaded!</font></td>
-                </tr>
-                <tr>
-                <td><img src="appsimages/filehider.png" class="app-img"></td>
-                <td>File hider</td>
-                <td>1.0.0</td>
-                <td><a class="button" href="https://www.mediafire.com/file/ohfhpmcy7trricm/FileHider1.0.exe/file">Download</a></td>
-                <td><font color="red">Not Uploaded!</font></td>
-                </tr>
-				<tr>
-				<td><img src="../images/jome2.png" class="app-img"></td>
-                <td>Jome Web Browser</td>
-                <td>2.6 </td>
-                <td><a class="button" href="https://www.mediafire.com/file/ry1uetg6d4emxou/Jome_2.6_setup.exe/file">Download</a></td>
-                <td><font color="red">Not Uploaded!</font></td>
-                </tr>
-				<tr>
-				<td><img src="appsimages/vilentlogo.png" class="app-img"></td>
-                <td>Vilent Messager</td>
-                <td>5.0.3 </td>
-                <td><a class="button" href="https://www.mediafire.com/file/12hfivqtw4p7ih7/vilentsetup5.0.3.exe/file">Download</a></td>
-                <td><a class="button" href="http://janektechphp.playit.plus/janektech/fileuploads/happydownload.php?file=2394909664aba5a5%2FvilentStore.exe">Download</a></td>
-                
-				</tr>
-				<tr>
-				<td><img src="appsimages/minilogo.png" class="app-img"></td>
-                <td>Vilent messager MINI</td>
-                <td>5.0.3 Mini </td>
-                <td><a class="button" href="https://www.mediafire.com/file/9x6hc4d5sve4nux/vilentMinisetup.exe/file">Download</a></td>
-                <td><a class="button" href="http://janektechphp.playit.plus/janektech/fileuploads/happydownload.php?file=0c2f33799d51473b%2FvilentMStore.exe">Download</a></td>
-                </tr>
-				<tr>
-				<td><img src="appsimages/weatherlogo.png" class="app-img"></td>
-                <td>Weather app</td>
-                <td>1.0.0</td>
-                <td><a class="button" href="https://www.mediafire.com/file/ir3ckidf2cgrq4j/weatherinstaller.exe/file">Download</a></td>
-                <td><font color="red">Not Uploaded!</font></td>
-                </tr>
-				<tr>
-				<td><img src="appsimages/jdec.png" class="app-img"></td>
-                <td>Janek's decoder </td>
-                <td>1.0.0</td>
-                <td><a class="button" href="https://958e8748-38c9-4f0e-9ed2-fea32f696937.filesusr.com/archives/937646_2ebd1cd330f34ca2b701df29a4db8cb8.zip?dn=janekscompilersetup.zip">Download</a></td>
-                <td><font color="red">Not Uploaded!</font></td>
-                </tr>
-				<tr>
-				<td><img src="appsimages/dricon.png" class="app-img"></td>
-                <td>Dr setup </td>
-                <td>1.6.0</td>
-                <td><a class="button" href="https://www.mediafire.com/file/jr53jlsv37ixclt/Drsetup_setup.exe/file">Download</a></td>
-                <td><font color="red">Not Uploaded!</font></td>
-                </tr>
-            </tbody>
-            </table>
-        <a>Didn't find the Version that you were looking for? Press <a class="button" href="../apps/ver/index">See all versions</a></a>
-      </div>
-      
+    </main>
 
-  </div>
+    <footer>
+        <span>JanekTech.pl</span>
+        <span>jan.g © 2026</span>
+    </footer>
+
+    <script>
+        const searchInput = document.getElementById('app-search');
+        const cards = [...document.querySelectorAll('.app-card')];
+        const filters = [...document.querySelectorAll('.filter')];
+        const counter = document.getElementById('visible-count');
+        const emptyState = document.getElementById('empty-state');
+        let activeFilter = 'all';
+
+        function updateApps() {
+            const query = searchInput.value.trim().toLowerCase();
+            let visible = 0;
+
+            cards.forEach(card => {
+                const name = card.dataset.name.toLowerCase();
+                const categories = card.dataset.category.split(' ');
+                const matchesSearch = name.includes(query) || card.textContent.toLowerCase().includes(query);
+                const matchesFilter = activeFilter === 'all' || categories.includes(activeFilter);
+                const show = matchesSearch && matchesFilter;
+
+                card.hidden = !show;
+                if (show) visible++;
+            });
+
+            counter.textContent = visible;
+            emptyState.hidden = visible !== 0;
+        }
+
+        searchInput.addEventListener('input', updateApps);
+        filters.forEach(button => {
+            button.addEventListener('click', () => {
+                filters.forEach(item => item.classList.remove('active'));
+                button.classList.add('active');
+                activeFilter = button.dataset.filter;
+                updateApps();
+            });
+        });
+    </script>
 </body>
 </html>
