@@ -2,7 +2,5 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://janektech.pl/</loc></url>
   <url><loc>https://janektech.pl/apps/</loc></url>
-  <url><loc>https://janektech.pl/addons/</loc></url>
-  <url><loc>https://janektech.pl/terms/</loc></url>
-  <url><loc>https://janektech.pl/loginmenu/</loc></url>
+  <url><loc>https://janektech.pl/terms/</loc></url>  
 </urlset>
